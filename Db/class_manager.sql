@@ -1,11 +1,17 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Tempo de geração: 13-Set-2024 às 20:27
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
+=======
+-- Tempo de geração: 11/09/2024 às 20:52
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
+>>>>>>> d03f4ae7087129de5b3e15d5b0f0a1569205db52
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +30,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Estrutura da tabela `classrooms`
+=======
+-- Estrutura para tabela `classroms`
+>>>>>>> d03f4ae7087129de5b3e15d5b0f0a1569205db52
 --
 
 CREATE TABLE `classrooms` (
@@ -78,7 +88,7 @@ CREATE TABLE `scheduling` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `subjects`
+-- Estrutura para tabela `subjects`
 --
 
 CREATE TABLE `subjects` (
@@ -105,7 +115,7 @@ INSERT INTO `subjects` (`id_subject`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `users`
+-- Estrutura para tabela `users`
 --
 
 CREATE TABLE `users` (
@@ -114,6 +124,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `user_type` int(11) NOT NULL,
+<<<<<<< HEAD
   `school_year` varchar(255) NOT NULL,
   `subject` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -146,17 +157,28 @@ INSERT INTO `users` (`id_users`, `name`, `email`, `password`, `user_type`, `scho
 (26, 'Luísa Martins', 'luisa@gmail.com', '12345', 2, '2 Ano do Ensino Médio', ''),
 (27, 'Luísa Martins', 'luisa@gmail.com', '12345', 2, '2 Ano do Ensino Médio', '');
 
+=======
+  `school_year` int(11) NOT NULL,
+  `subject` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+>>>>>>> d03f4ae7087129de5b3e15d5b0f0a1569205db52
 --
 -- Índices para tabelas despejadas
 --
 
 --
+<<<<<<< HEAD
 -- Índices para tabela `classrooms`
+=======
+-- Índices de tabela `classroms`
+>>>>>>> d03f4ae7087129de5b3e15d5b0f0a1569205db52
 --
 ALTER TABLE `classrooms`
   ADD PRIMARY KEY (`id_class`);
 
 --
+<<<<<<< HEAD
 -- Índices para tabela `scheduling`
 --
 ALTER TABLE `scheduling`
@@ -165,18 +187,25 @@ ALTER TABLE `scheduling`
 
 --
 -- Índices para tabela `subjects`
+=======
+-- Índices de tabela `subjects`
+>>>>>>> d03f4ae7087129de5b3e15d5b0f0a1569205db52
 --
 ALTER TABLE `subjects`
   ADD PRIMARY KEY (`id_subject`);
 
 --
--- Índices para tabela `users`
+-- Índices de tabela `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_users`);
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT de tabelas despejadas
+=======
+-- AUTO_INCREMENT para tabelas despejadas
+>>>>>>> d03f4ae7087129de5b3e15d5b0f0a1569205db52
 --
 
 --
@@ -201,6 +230,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
+<<<<<<< HEAD
   MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
@@ -212,6 +242,9 @@ ALTER TABLE `users`
 --
 ALTER TABLE `scheduling`
   ADD CONSTRAINT `scheduling_id_teacher_id_user_users_FK` FOREIGN KEY (`id_teacher`) REFERENCES `users` (`id_users`);
+=======
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT;
+>>>>>>> d03f4ae7087129de5b3e15d5b0f0a1569205db52
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+/* Estilos gerais para body e html */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para header */
+header {
+    position: relative;
+    color: white;
+    padding: 10px;
+}
+
+/* Estilo do botão de menu */
+.menu-toggle {
+    font-size: 30px;
+    cursor: pointer;
+    width: 50%;
+}
+
+/* Estilos do menu lateral */
+.menu {
+    position: absolute;
+    top: 0;
+    left: -20vw; /* Escondido inicialmente fora da tela à esquerda */
+    width: 20vw;
+    height: 100vh;
+    background-color: #0D8473;
+    transition: left 0.3s ease; /* Animação de deslize */
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.menu.open {
+    left: 0; /* Menu aparece na tela */
+}
+
+/* Estilo do botão de fechar */
+.close-menu {
+    text-align: right;
+    font-size: 30px;
+    padding: 10px;
+    color: white;
+    width: 50%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 0 0 0 1vw;
+}
+
+/* Estilos do container de navegação superior */
+.container-up-SM {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
+.menu-open-button {
+    height: 7vh;
+    margin: 1vh 0 0 0;
+}
+
+.menu-close-button {
+    height: 3.5vh;
+    filter: invert();
+    cursor: pointer;
+    margin: 1vh 0 0 0;
+
+}
+
+/* Estilos para a seção de logout */
+.logout {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin: 0 1vw 0 0;
+    width: 50%;
+    height: auto;
+    flex-direction: row;
+}
+
+.logout-button {
+    height: 3.5vh;
+    filter: invert();
+    margin: 1vh 0 0 0;
+}
+
+/* Estilos específicos para a navegação na lista */
+.list-nav {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.ul-nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 4vw 0 0 0;
+}
+
+.button-nav {
+    margin: 0;
+    padding: 2vh 0 0 1vw;
+}
+
+.link-nav {
+    display: flex;            /* Flexbox para alinhar a imagem e o texto */
+    align-items: center;       /* Centraliza verticalmente a imagem e o texto */
+    text-decoration: none;     /* Remove sublinhado do link */
+    color: inherit;            /* Mantém a cor padrão do texto */
+}
+
+/* Estilos para a imagem do ícone */
+.icons {
+    height: 5vh;
+    filter: invert();
+    margin-right: 8px;        /* Espaço entre a imagem e o texto */
+}
+
+/* Estilos para a imagem do ícone */
+.icons-arrow {
+    height: 3.5vh;
+    margin-right: 8px;        /* Espaço entre a imagem e o texto */
+}
+
+/* Estilos para o texto da navegação */
+.nav-text {
+    font-family: "SUSE", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin: 0;                /* Remove a margem padrão do parágrafo */
+    transition: .2s;
+}
+
+.nav-text:hover{
+    font-size: 1.6rem;
+    color: #7accbf;
+    transition: .2s;
+}

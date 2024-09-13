@@ -1,0 +1,83 @@
+body {
+    font-family: 'Abel', sans-serif;
+}
+h1 {
+    color: #ff0000; /* Vermelho */
+    text-align: center;
+    font-family: 'Abel', sans-serif;
+}
+
+
+
+.lixo {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ff0000; /* Vermelho */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 20px auto; /* Margem do link em relação ao topo */
+    max-width: 200px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Abel', sans-serif;
+}
+
+.lixo:hover {
+    background-color: #cc0000; /* Tom mais escuro de vermelho no hover */
+    transform: scale(1.1); /* Efeito de escala no hover */
+}
+p {
+    color: #ff0000; /* Vermelho */
+    text-align: center;
+    font-family: 'Abel', sans-serif;
+}
+.no {
+    width: 95%;
+    background-color: #ff0000; /* Vermelho */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Abel', sans-serif;  
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.no:hover {
+    transform: scale(1.1); /* Efeito de escala no hover */
+}
+.formulario {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Abel', sans-serif;
+}
+
+.campo-input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Abel', sans-serif;
+}
+
+.campo-submit {
+    width: 95%;
+    background-color: #ff0000; /* Vermelho */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Abel', sans-serif;  
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.campo-submit:hover {
+    transform: scale(1.1); /* Efeito de escala no hover */
+}
