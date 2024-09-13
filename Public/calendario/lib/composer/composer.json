@@ -1,0 +1,16 @@
+{
+    "name": "wef/calendar",
+    "description": "Calendário Agenda de Eventos com PHP.",
+    "authors": [
+        {
+            "name": "João Pedro Borda da Silva"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Classes\\": "../../class",
+            "Models\\": "../../model"
+        }
+    }
+}
