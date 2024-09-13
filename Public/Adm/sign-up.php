@@ -2,7 +2,9 @@
 session_start();
 include_once '../../Config/config.php';
 include_once '../../App/Controller/UsersController.php';
+include_once '../../App/Controller/SubjectsController.php';
 
+$subjectsController = new subjectsController($pdo); 
 $usersController = new UserController($pdo);
 if (isset($_POST['name']) &&
     isset($_POST['email']) &&
@@ -16,6 +18,8 @@ if (isset($_POST['name']) &&
         header('Location: sign-up.php');
         exit();
     }
+
+$subjectss = $subjectsController->listSubjects();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +27,11 @@ if (isset($_POST['name']) &&
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <style>
+        .hidden-input {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -51,14 +60,14 @@ if (isset($_POST['name']) &&
                 </label><br><br>
                 <label>
                     <p>Tipo de Usuário</p>
-                    <input type="radio" name="user_type" value="1" required><span>Professor</span><br>
+                    <input type="radio" name="user_type" value="1" onclick="showInput('labelSubject')" required><span>Professor</span><br>
                 </label><br><br>
                 <label>
-                    <input type="radio" name="user_type" value="2" required><span>Aluno</span>
+                    <input type="radio" name="user_type" value="2" onclick="showInput('labelSchoolYear')" required><span>Aluno</span>
                 </label><br><br>
-                <label>
+                <label id="labelSchoolYear" class="hidden-input">
                     <span>Ano Escolar:</span><br>
-                    <select name="school_year" required>
+                    <select name="school_year">
                         <option value="">Selecione...</option>
                         <optgroup label="Ensino Fundamental">
                             <option value="9 Ano do Ensino Fundamental">9º Ano</option>
@@ -73,13 +82,19 @@ if (isset($_POST['name']) &&
                         </optgroup>
                     </select>
                 </label><br><br>
-                <label>
+                <label id="labelSubject" class="hidden-input">
                     <span>Matéria:</span><br>
-                    <input type="text" name="subject" required>
+                    <select name="subject" required>
+                        <option value="">Selecione...</option>
+                    <?php foreach($subjectss as $subject): ?>
+                        <option value="<?php echo $subject['name'] ?>"><?php echo $subject['name'] ?></option>
+                    <?php endforeach; ?>
+                    </select>
                 </label><br><br>
                 <button type="submit">Finalizar</button>
             </form>
         </section>
     </main>
+    <script src="../../Resources/Js/app.js"></script>
 </body>
 </html>

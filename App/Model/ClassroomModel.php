@@ -10,7 +10,7 @@ class ClassroomModel
 
     public function createClassroom($identification, $conditionstatus, $equipaments, $description)
     {
-        $sql = "INSERT INTO classrooms ($identification, $conditionstatus, $equipaments, $description) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO classrooms (identification, conditionstatus, equipaments, description) VALUES (?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$identification, $conditionstatus, $equipaments, $description]);
         return $stmt->rowCount();

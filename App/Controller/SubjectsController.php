@@ -1,5 +1,5 @@
 <?php
-require_once 'Model/SubjectModel.php';
+require_once 'C:\xampp\htdocs\class_scheduling\App\Model\SubjectModel.php';
 
 class subjectsController
 {
@@ -10,9 +10,9 @@ class subjectsController
         $this->subjectmodel = new subjectModel($pdo);
     }
 
-    public function createSubjects($name, $teacher)
+    public function createSubjects($name)
     {
-        $this->subjectmodel->createSubject($name, $teacher);
+        $this->subjectmodel->createSubject($name);
     }
 
     public function listSubjects()
@@ -26,9 +26,9 @@ class subjectsController
         include 'View\Subjects\view.php'; // Inclua a view
     }
 
-    public function updateSubjects($id_subject, $name, $teacher)
+    public function updateSubjects($id_subject, $name)
     {
-        $this->subjectmodel->updateSubject($id_subject, $name, $teacher);
+        $this->subjectmodel->updateSubject($id_subject, $name);
     }
 
     public function deleteSubjects($id_subject)

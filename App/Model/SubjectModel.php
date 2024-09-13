@@ -8,11 +8,11 @@ class SubjectModel
         $this->pdo = $pdo;
     }
 
-    public function createSubject($name, $teacher)
+    public function createSubject($name)
     {
-        $sql = "INSERT INTO subjects ($name, $teacher) VALUES (?, ?)";
+        $sql = "INSERT INTO subjects (name) VALUES (?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$name, $teacher]);
+        $stmt->execute([$name]);
         return $stmt->rowCount();
     }
 
@@ -23,11 +23,11 @@ class SubjectModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function updateSubject($id_subject, $name, $teacher)
+    public function updateSubject($id_subject, $name)
     {
-        $sql = "UPDATE subjects SET name = ?, teacher = ? WHERE id_subject = ?";
+        $sql = "UPDATE subjects SET name = ? WHERE id_subject = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$name, $teacher, $id_subject]);
+        $stmt->execute([$name, $id_subject]);
     }
 
     public function deleteSubject($id_subject)
