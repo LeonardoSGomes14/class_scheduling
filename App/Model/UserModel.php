@@ -10,7 +10,7 @@ class UserModel
 
     public function createUser($name, $email, $password, $user_type, $school_year, $subject)
     {
-        $sql = "INSERT INTO users ($name, $email, $password, $user_type, $school_year, $subject) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (name, email, password, user_type, school_year, subject) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$name, $email, $password, $user_type, $school_year, $subject]);
         return $stmt->rowCount();
