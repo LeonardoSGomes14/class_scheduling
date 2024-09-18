@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Set-2024 às 05:04
+-- Tempo de geração: 18-Set-2024 às 20:16
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -46,7 +46,7 @@ INSERT INTO `classrooms` (`id_class`, `identification`, `conditionstatus`, `equi
 (4, 'A21', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
 (5, 'A20', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
 (6, 'A19', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
-(7, 'A18', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
+(7, 'A18', 1, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
 (8, 'A17', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
 (9, 'A16', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
 (10, 'A15', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
@@ -74,6 +74,13 @@ CREATE TABLE `scheduling` (
   `scheduling_time` datetime NOT NULL,
   `end_time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Extraindo dados da tabela `scheduling`
+--
+
+INSERT INTO `scheduling` (`id_scheduling`, `id_teacher`, `teacher_name`, `scheduling_time`, `end_time`) VALUES
+(46, 6, 'Frederico Alberto da Silva', '2024-09-18 15:10:00', '2024-09-18 16:10:00');
 
 -- --------------------------------------------------------
 
@@ -190,7 +197,7 @@ ALTER TABLE `classrooms`
 -- AUTO_INCREMENT de tabela `scheduling`
 --
 ALTER TABLE `scheduling`
-  MODIFY `id_scheduling` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_scheduling` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de tabela `subjects`
