@@ -20,6 +20,16 @@ if (isset($_POST['scheduling_time']) &&
         exit();
     }
 
+if (isset($_POST['undo_reservation'])) {
+    $id_teacher = $_SESSION['userID'];
+    $message = $schedulingController->undoScheduling($id_class, $id_teacher);
+    $_SESSION['message'] = $message;
+
+    $classroomController->updateClassroomStatus($id_class, 0);
+    header('Location: scheduling.php?id=' . $id_class);
+    exit();
+}
+
 $classrooms = $classroomController->listClassroomsByID($id_class);
 $schedulings = $schedulingController->listSchedulings();
 ?>
@@ -41,6 +51,7 @@ $schedulings = $schedulingController->listSchedulings();
     </header>
     <main>
         <section>
+            <a href="index.php">Voltar</a>
             <h1>
                 <?php echo $classrooms['identification'] ?>
             </h1>
@@ -63,7 +74,11 @@ $schedulings = $schedulingController->listSchedulings();
                 <button type="submit">Finalizar</button>
             </form>
             <?php else: ?>
-                <h2>Sala Reservada</h2>
+                <h2>Sala Reservada pelo(a) professor(a) <?php echo $_SESSION['userName']; ?></h2>
+                <form method="post">
+                    <input type="hidden" name="undo_reservation" value="1">
+                    <button type="submit">Desfazer Reserva</button>
+                </form>
                 <?php endif; ?>
         </section>
 

@@ -20,6 +20,10 @@ class SchedulingController
         return $this->schedulingmodel->listSchedulings();
     }
 
+    public function undoScheduling($id_scheduling, $id_teacher) {
+        return $this->schedulingmodel->undoScheduling($id_scheduling, $id_teacher);
+    }    
+
     public function showSchedulingsList()
     {
         $schedulings = $this->listSchedulings();
