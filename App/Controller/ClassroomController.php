@@ -20,6 +20,11 @@ class   ClassroomController
         return $this->classroommodel->listClassrooms();
     }
 
+    public function listClassroomsByID($id_class) {
+        $classrooms = $this->classroommodel->listClassroomsByID($id_class);
+        return $classrooms;
+    }
+
     public function showClassroomsList()
     {
         $classrooms = $this->listClassrooms();

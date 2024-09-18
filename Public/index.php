@@ -1,5 +1,10 @@
 <?php
 session_start();
+include_once '../Config/config.php';
+include_once '../App/Controller/ClassroomController.php';
+
+$classroomController = new ClassroomController($pdo);
+$classrooms = $classroomController->listClassrooms();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +30,7 @@ session_start();
                     <img class="menu-close-button" src="../Resources/Images/close.png" alt="close-icon">
                 </div>
                 <div class="logout">
-                    <a href="#">
+                    <a href="../App/Providers/logout.php">
                         <img class="logout-button" src="../Resources/Images/sign-out.png" alt="logout-icon">
                     </a>    
                 </div>
@@ -56,9 +61,13 @@ session_start();
     </header>
     <main>
         <section>
-            
+            <?php foreach ($classrooms as $classroom): ?>
+                <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>"> 
+            <?php echo $classroom['identification']; ?>
+                </a>
+            <?php endforeach; ?>
         </section>
     </main>
+    <script src="../Resources/Js/sandwich-menu.js"></script>
 </body>
 </html>
-<script src="../Resources/Js/sandwich-menu.js"></script>

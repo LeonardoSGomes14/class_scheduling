@@ -15,18 +15,22 @@ if (isset($_POST['email'])) {
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($result){
-        $_SESSION['userID'] = $result['id'];
+        $_SESSION['userID'] = $result['id_users'];
         $_SESSION['userName'] = $result['name'];
         $_SESSION['userEmail'] = $result['email'];
         $_SESSION['userType'] = $result['user_type'];
-        $_SESSION['nao_atenticado'] = false;
+        $_SESSION['nao_autenticado'] = false;
 
-        if ($_SESSION['userType'] == 1) {
+        if ($_SESSION['userType'] == 1) { // PROFESSOR
             header('Location: ../../Public/index.php');
-        } elseif ($_SESSION['userType'] == 2) {
+        } elseif ($_SESSION['userType'] == 2) { // ALUNO
             header('Location: ../../Public/index.php');
-        } elseif ($_SESSION['userType'] == 3) {
-            header('Location: ../../Public/index.php');
+        } elseif ($_SESSION['userType'] == 3) { // ADMINISTRADOR
+            header('Location: ../../Public/Adm/registerClass.php');
         }
+    } else {
+        $_SESSION['nao_autenticado'] = true;
+        header('Location: ../../Public/sign-in.php');
+        exit();
     }
 }

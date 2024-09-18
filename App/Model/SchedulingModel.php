@@ -8,8 +8,10 @@ class SchedulingModel
         $this->pdo = $pdo;
     }
 
-    public function createSchedulings($id_teacher, $teacher_name, $scheduling_time, $end_time)
+    public function createScheduling($scheduling_time, $end_time)
     {
+        $id_teacher = $_SESSION['userID'];
+        $teacher_name = $_SESSION['userName'];
         $sql = "INSERT INTO scheduling (id_teacher, teacher_name, scheduling_time, end_time) VALUES (?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id_teacher, $teacher_name, $scheduling_time, $end_time]);
