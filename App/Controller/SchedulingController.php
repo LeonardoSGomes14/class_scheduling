@@ -10,9 +10,9 @@ class SchedulingController
         $this->schedulingmodel = new schedulingModel($pdo);
     }
 
-    public function createScheduling($id_teacher, $teacher_name, $scheduling_time, $end_time)
+    public function createScheduling($scheduling_time, $end_time)
     {
-        $this->schedulingmodel->createScheduling($id_teacher, $teacher_name, $scheduling_time, $end_time);
+        $this->schedulingmodel->createScheduling($scheduling_time, $end_time);
     }
 
     public function listSchedulings()

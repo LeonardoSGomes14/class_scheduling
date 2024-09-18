@@ -37,6 +37,11 @@ class ClassroomModel
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$identification, $conditionstatus, $equipaments, $description, $id_class]);
     }
+    public function updateClassroomStatus($id_class, $status) {
+        $sql = "UPDATE classrooms SET conditionstatus = :status WHERE id_class = :id_class";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['status' => $status, 'id_class' => $id_class]);
+    }
 
     public function deleteClassroom($id_class)
     {
