@@ -22,8 +22,8 @@ class subjectsController
 
     public function showSubjectsList()
     {
-        $subjectss = $this->listSubjects();
-        include 'View\Subjects\view.php'; // Inclua a view
+        $subjects = $this->listSubjects();
+        include 'C:\xampp\htdocs\class_scheduling\App\View\Subjects\view.php'; // Inclua a view
     }
 
     public function updateSubjects($id_subject, $name)
