@@ -7,14 +7,17 @@ include_once '../App/Controller/SchedulingController.php';
 $id_class = $_GET['id'];
 
 $classroomController = new ClassroomController($pdo);
-
 $schedulingController = new SchedulingController($pdo);
 
 if (isset($_POST['scheduling_time']) &&
     isset($_POST['end_time'])) {
-        $schedulingController->createScheduling($_SESSION['userID'], $_SESSION['userName'], $_POST['scheduling_time'], $_POST['end_time']);
+
+        $schedulingController->createScheduling(scheduling_time: $_POST['scheduling_time'], end_time: $_POST['end_time']);
+        $classroomController->updateClassroomStatus($id_class, 1);
 
         $_SESSION['message'] = 'Agendamento feito com sucesso!';
+        header('Location: scheduling.php?id=' . $id_class);
+        exit();
     }
 
 $classrooms = $classroomController->listClassroomsByID($id_class);

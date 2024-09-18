@@ -36,6 +36,10 @@ class   ClassroomController
         $this->classroommodel->updateClassroom($id_class, $identification, $contitionstatus, $equipaments, $description);
     }
 
+    public function updateClassroomStatus($id_class, $status) {
+        $this->classroommodel->updateClassroomStatus($id_class, $status);
+    }
+
     public function deleteClassroom($id_class)
     {
         $this->classroommodel->deleteClassroom($id_class);
