@@ -62,8 +62,8 @@ $classrooms = $classroomController->listClassrooms();
     <main>
         <section>
             <?php foreach ($classrooms as $classroom): ?>
-                <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>"> 
-            <?php echo $classroom['identification']; ?>
+                <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
+                    <img src="../Resources/Images/login-bg.jpeg" style="width: 200px; height: 200px;">
                 </a>
             <?php endforeach; ?>
         </section>
