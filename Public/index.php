@@ -57,68 +57,11 @@ $classrooms = $classroomController->listClassrooms();
     </header>
     <main>
         <section>
-            <!--DC é "Disponible Classroom"-->
-            <div class="div-DC">
-                <div class="tittle-DC">
-                    <p>SALAS DISPONÍVEIS</p>
-                </div>
-                <div class="section-DC">
-                    <?php 
-                        // Pega as 3 últimas salas de aula
-                        $classrooms = array_slice($classrooms, -3);
-                    ?>
-                    <div class="container-DC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
-                        </a>
-                    </div>
-                    <div class="container-DC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
-                        </a>
-                    </div>
-                    <div class="container-DC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="view-more-DC">
-                    <a href="">VER TODAS AS SALAS</a>
-                </div>
-            </div>
-
-            <div class="div-SC">
-                <div class="tittle-SC">
-                    <p>SALAS AGENDADAS</p>
-                </div>
-                <div class="section-SC">
-                    <?php 
-                        // Pega as 3 últimas salas de aula
-                        $classrooms = array_slice($classrooms, -3);
-                    ?>
-                    <div class="container-SC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
-                        </a>
-                    </div>
-                    <div class="container-SC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
-                        </a>
-                    </div>
-                    <div class="container-SC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="view-more-SC">
-                    <a href="">VER TODAS AS SALAS</a>
-                </div>
-            </div>
+            <?php foreach ($classrooms as $classroom): ?>
+                <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>"> 
+            <?php echo $classroom['identification']; ?>
+                </a>
+            <?php endforeach; ?>
         </section>
     </main>
     <script src="../Resources/Js/sandwich-menu.js"></script>

@@ -23,7 +23,7 @@ class UserController
     public function showUsersList()
     {   
         $users = $this->listUsers();
-        include 'View\users\view.php'; // Inclua a view
+        include 'C:\xampp\htdocs\class_scheduling\App\View\Users\view.php'; 
     }
 
     public function updateUser($id_users, $name, $email, $password, $user_type, $school_year, $subject)
