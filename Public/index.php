@@ -3,6 +3,11 @@ session_start();
 include_once '../Config/config.php';
 include_once '../App/Controller/ClassroomController.php';
 
+if (!isset($_SESSION['userID']) || $_SESSION['nao_autenticado'] === true) {
+    header('Location: sign-in.php');
+    exit();
+}
+
 $classroomController = new ClassroomController($pdo);
 $classrooms = $classroomController->listClassrooms();
 ?>
