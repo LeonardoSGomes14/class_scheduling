@@ -10,9 +10,9 @@ class SchedulingController
         $this->schedulingmodel = new schedulingModel($pdo);
     }
 
-    public function createScheduling($scheduling_time, $end_time)
+    public function createScheduling($id_class, $scheduling_time, $end_time)
     {
-        $this->schedulingmodel->createScheduling($scheduling_time, $end_time);
+        $this->schedulingmodel->createScheduling($id_class, $scheduling_time, $end_time);
     }
 
     public function listSchedulings()
@@ -20,18 +20,17 @@ class SchedulingController
         return $this->schedulingmodel->listSchedulings();
     }
 
-    public function undoScheduling($id_scheduling, $id_teacher) {
-        return $this->schedulingmodel->undoScheduling($id_scheduling, $id_teacher);
+    public function undoScheduling($id_class, $id_teacher) {
+        return $this->schedulingmodel->undoScheduling($id_class, $id_teacher);
     }    
+
+    public function getSchedulingByClassroom($id_class) {
+        return $this->schedulingmodel->getSchedulingByClassroom($id_class);
+    }
 
     public function showSchedulingsList()
     {
         $schedulings = $this->listSchedulings();
         include 'View\Classrooms\view.php'; // Inclua a view
-    }
-
-    public function deleteScheduling($id_scheduling)
-    {
-        $this->schedulingmodel->deleteScheduling($id_scheduling);
     }
 }
