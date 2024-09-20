@@ -30,8 +30,8 @@ class SchedulingController
         include 'View\Classrooms\view.php'; // Inclua a view
     }
 
-    public function deleteScheduling($id_scheduling)
+    public function deleteSchedulings($id_scheduling)
     {
-        $this->schedulingmodel->deleteScheduling($id_scheduling);
+        $this->schedulingmodel->deleteSchedulings($id_scheduling);
     }
 }
