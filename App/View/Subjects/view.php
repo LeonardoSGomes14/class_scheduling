@@ -1,14 +1,16 @@
 <?php
+include_once 'C:\xampp\htdocs\class_scheduling\App\Controller\SubjectsController.php';
+include_once 'C:\xampp\htdocs\class_scheduling\Config\config.php';
+
     echo "<h2>Matérias cadastradas</h2>";
     echo "<table>";
-    echo "<tr><th>Nome</th><th>Professores</th></tr>";
+    echo "<tr><th>Id</th><th>Nome da matéria</th></tr>";
 
     try {
-        $stmt = $pdo->query("SELECT * FROM subjects");
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      foreach($subjects as $subject) {
             echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['name']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['teacher']) . "</td>";
+            echo "<td>" . htmlspecialchars($subject['id_subject']) . "</td>";
+            echo "<td>" . htmlspecialchars($subject['name']) . "</td>";
 
             echo "</tr>";
         }

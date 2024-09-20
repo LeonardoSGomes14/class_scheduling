@@ -28,12 +28,16 @@ class   ClassroomController
     public function showClassroomsList()
     {
         $classrooms = $this->listClassrooms();
-        include 'View\Classrooms\view.php'; // Inclua a view
+        include 'C:\xampp\htdocs\class_scheduling\App\View\Classrooms\view.php'; // Inclua a view
     }
 
     public function updateClassroom($id_class, $identification, $contitionstatus, $equipaments, $description)
     {
         $this->classroommodel->updateClassroom($id_class, $identification, $contitionstatus, $equipaments, $description);
+    }
+
+    public function updateClassroomStatus($id_class, $status) {
+        $this->classroommodel->updateClassroomStatus($id_class, $status);
     }
 
     public function deleteClassroom($id_class)

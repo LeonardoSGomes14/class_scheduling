@@ -1,17 +1,19 @@
 <?php
+include_once 'C:\xampp\htdocs\class_scheduling\App\Controller\UsersController.php';
+include_once 'C:\xampp\htdocs\class_scheduling\Config\config.php';
+
     echo "<h2>Usuarios cadastrados</h2>";
     echo "<table>";
-    echo "<tr><th>Nome</th><th>Email</th>Tipo de usuário</th><th>Ano escolar</th><th>Matéria</th></tr>";
+    echo "<tr><th>Nome</th><th>Email</th><th>Tipo de usuário</th><th>Ano escolar</th><th>Matéria</th></tr>";
 
     try {
-        $stmt = $pdo->query("SELECT * FROM users");
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        foreach ($users as $user){
             echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['name']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['email']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['user_type']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['school_year']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['subject']) . "</td>";
+            echo "<td>" . htmlspecialchars($user['name']) . "</td>";
+            echo "<td>" . htmlspecialchars($user['email']) . "</td>";
+            echo "<td>" . htmlspecialchars($user['user_type']) . "</td>";
+            echo "<td>" . htmlspecialchars($user['school_year']) . "</td>";
+            echo "<td>" . htmlspecialchars($user['subject']) . "</td>";
 
             echo "</tr>";
         }
