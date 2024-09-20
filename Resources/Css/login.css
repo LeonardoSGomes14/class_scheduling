@@ -134,21 +134,40 @@ label[title]:hover::after {
 
     .r-button {
         display: flex;
+        flex-direction: column;
         align-items: center;
         height: 5vh;
         
     }
     
+
+   
+    a{
+        text-decoration: none;
+    }
+
+    .r-button a {
+        font-size: 15px;
+        color: #17A48F;
+        cursor: pointer;
+    }
+
     .r-button button {
     background-color: #17A48F;
     background-image: linear-gradient(to right, #17A48F, #1DB9A4);
     color: white;
-    border-radius: 10px; /* Deixar o botão mais arredondado */
+    
     font-size: 20px;
-    width: 10vw;
+    width: 15vw;
     height: 5vh;
     border: none;
     transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    position: absolute;
+}
+
+#espaco input {
+margin-bottom: 2vh;
 }
 
 .r-button button:hover {
