@@ -1,6 +1,6 @@
 <?php
-include_once '../../Config/config.php';
-include_once '../../App/Controller/ClassroomController.php';
+include_once '../Config/config.php';
+include_once '../App/Controller/ClassroomController.php';
 $classroomController = new ClassroomController($pdo);
 ?>
 
@@ -10,13 +10,13 @@ $classroomController = new ClassroomController($pdo);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de salas de aula indisponíveis</title>
+    <title>Lista de salas de aula disponíveis</title>
 </head>
 
 <body>
 
     <?php
-    $classroomController->showIndClassroomsList();
+    $classroomController->showDispClassroomsList();
     ?>
     
 

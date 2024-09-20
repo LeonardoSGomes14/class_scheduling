@@ -83,7 +83,7 @@ $classrooms = $classroomController->listClassrooms();
                 </div>
                 
                 <div class="view-more-DC">
-                    <a href="">VER TODAS AS SALAS</a>
+                    <a href="disp_classrooms_list.php">VER TODAS AS SALAS</a>
                 </div>
             </div>
             <div class="div-SC">
@@ -113,7 +113,7 @@ $classrooms = $classroomController->listClassrooms();
                 </div>
                 
                 <div class="view-more-SC">
-                    <a href="">VER TODAS AS SALAS</a>
+                    <a href="ind_classrooms_list.php">VER TODAS AS SALAS</a>
                 </div>
             </div>
         </section>
