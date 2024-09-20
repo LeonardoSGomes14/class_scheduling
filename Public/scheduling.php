@@ -14,10 +14,11 @@ $id_class = $_GET['id'];
 $classroomController = new ClassroomController($pdo);
 $schedulingController = new SchedulingController($pdo);
 
-if (isset($_POST['scheduling_time']) &&
+if (isset($_POST['id_class']) &&
+    isset($_POST['scheduling_time']) &&
     isset($_POST['end_time'])) {
 
-        $schedulingController->createScheduling(scheduling_time: $_POST['scheduling_time'], end_time: $_POST['end_time']);
+        $schedulingController->createScheduling($_POST['id_class'], $_POST['scheduling_time'], $_POST['end_time']);
         $classroomController->updateClassroomStatus($id_class, 1);
 
         $_SESSION['message'] = 'Agendamento feito com sucesso!';
@@ -25,23 +26,21 @@ if (isset($_POST['scheduling_time']) &&
         exit();
     }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
-    isset($_POST['undo_reservation'])) {
-        $id_scheduling = $_POST['id_scheduling'];
-        $schedulingController->undoScheduling($id_scheduling, $id_teacher);
-    }
-/*if (isset($_POST['undo_reservation'])) {
-    $id_teacher = $_SESSION['userID'];
-    $message = $schedulingController->undoScheduling($id_class, $id_teacher);
-    $_SESSION['message'] = $message;
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
+        isset($_POST['undo_reservation']) &&
+        isset($_POST['id_teacher'])) {
+            $id_class = $_GET['id'];
+            $id_teacher = $_POST['id_teacher'];
+            $schedulingController->undoScheduling($id_class, $id_teacher);
 
-    $classroomController->updateClassroomStatus($id_class, 0);
-    header('Location: scheduling.php?id=' . $id_class);
-    exit();
-}*/
+            $classroomController->updateClassroomStatus($id_class, 0);
+            header('Location: scheduling.php?id=' . $id_class);
+            exit();
+}
 
 $classrooms = $classroomController->listClassroomsByID($id_class);
 $schedulings = $schedulingController->listSchedulings();
+$scheduling = $schedulingController->getSchedulingByClassroom($id_class);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,17 +80,30 @@ $schedulings = $schedulingController->listSchedulings();
                     <span>Horário de Término:</span><br>
                     <input type="datetime-local" name="end_time" required>
                 </label><br><br>
+                <input type="hidden" name="id_class" value="<?php echo $id_class ?>">
                 <button type="submit">Finalizar</button>
             </form>
             <?php else: ?>
-                <h2>Sala Reservada pelo(a) professor(a) <?php echo $_SESSION['userName']; ?></h2>
+                <h2>Sala Reservada pelo(a) professor(a) <?php echo $scheduling['teacher_name']; ?></h2>
+
+                <?php 
+                $datetime = $scheduling['scheduling_time'];
+                $datetime_formatted = date('d/m/Y H:i:s', strtotime($datetime));
+
+                $endtime = $scheduling['end_time'];
+                $endtime_formatted = date('d/m/Y H:i:s', strtotime($endtime));
+                ?>
+                
+                <p>Para o dia <?php echo $datetime_formatted ?></p>
+                <p>Até <?php echo $endtime_formatted ?></p>
+
+                <?php if ($_SESSION['userID'] == $scheduling['id_teacher']): ?>
                 <form method="post">
-                    <?php foreach ($schedulings as $scheduling): ?>
-                    <input type="hidden" name="id_scheduling" value="<?php echo $scheduling['id_scheduling'] ?>">
+                    <input type="hidden" name="id_teacher" value="<?php echo $_SESSION['userID'] ?>">
                     <button type="submit" name="undo_reservation">Desfazer Reserva</button>
-                    <?php endforeach ?>
                 </form>
                 <?php endif; ?>
+            <?php endif; ?>
         </section>
 
     </main>
