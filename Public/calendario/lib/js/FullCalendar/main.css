@@ -1481,6 +1481,7 @@ A VERTICAL event
 
 .fc-theme-bootstrap5 {
 
+
   /* HACK: reapply core styles after highe-precedence border statement above */
 }
 

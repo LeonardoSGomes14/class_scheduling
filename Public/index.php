@@ -49,13 +49,6 @@ $classrooms = $classroomController->listClassrooms();
                             <p class="nav-text">CALENDÁRIO</p>
                         </a>
                     </li>
-                    <li class="button-nav">
-                        <a class="link-nav" href="">
-                            <img class="icons-arrow" src="../Resources/Images/play_arrow.png" alt="Calendario-icon">
-                            <p class="nav-text">CRONOGRAMA SEMANAL</p>
-                        </a>
-                    </li>
-                    
                 </ul>
             </div>
         </nav>

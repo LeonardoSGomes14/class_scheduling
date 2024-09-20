@@ -67,10 +67,16 @@
     }
     .menu-close-button{
         margin: 0 0 0 1vw;
+        filter: invert();
     }
     .logout{
         margin: 0 1vw 0 0;
     }
+
+    .logout-button{
+        filter: invert();
+    }
+    
     /* Estilos específicos para a navegação na lista */
     .list-nav {
         width: 100%;
@@ -104,6 +110,7 @@
     .icons-arrow {
         height: 5vh;
         margin-right: 8px;        /* Espaço entre a imagem e o texto */
+        filter: invert();
     }
     /* Estilos para o texto da navegação */
     .nav-text {
