@@ -1,6 +1,6 @@
 <?php
-include_once '../../Config/config.php';
-include_once '../../App/Controller/ClassroomController.php';
+include_once '../Config/config.php';
+include_once '../App/Controller/ClassroomController.php';
 $classroomController = new ClassroomController($pdo);
 ?>
 
