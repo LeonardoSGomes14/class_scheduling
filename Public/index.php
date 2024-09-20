@@ -19,7 +19,7 @@ $classrooms = $classroomController->listClassrooms();
     <title>Página Inicial</title>
 </head>
 <body>
-    <header>
+<header>
         <div class="menu-toggle" id="menu-toggle">
             <svg class="menu-open-button" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 72 72">
                 <path d="M56 48c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 48 54.798 48 56 48zM56 32c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 32 54.798 32 56 32zM56 16c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 16 54.798 16 56 16z"></path>
@@ -57,13 +57,67 @@ $classrooms = $classroomController->listClassrooms();
     </header>
     <main>
         <section>
-            <?php foreach ($classrooms as $classroom): ?>
-                <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>"> 
-            <?php echo $classroom['identification']; ?>
-                </a>
-            <?php endforeach; ?>
+            <!--DC é "Disponible Classroom"-->
+            <div class="div-DC">
+                <div class="tittle-DC">
+                    <p>SALAS DISPONÍVEIS</p>
+                </div>
+                <div class="section-DC">
+                    <?php 
+                        // Pega as 3 últimas salas de aula
+                        //$classrooms = array_slice($classrooms, -3);
+                    ?>
+                    <div class="container-DC">
+                        <a href="#">
+                            <img src="../Resources/Images/img-1.png" alt="Imagem">
+                        </a>
+                    </div>
+                    <div class="container-DC">
+                        <a href="#">
+                            <img src="../Resources/Images/img-1.png" alt="Imagem">
+                        </a>
+                    </div>
+                    <div class="container-DC">
+                        <a href="#">
+                            <img src="../Resources/Images/img-1.png" alt="Imagem">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="view-more-DC">
+                    <a href="">VER TODAS AS SALAS</a>
+                </div>
+            </div>
+            <div class="div-SC">
+                <div class="tittle-SC">
+                    <p>SALAS AGENDADAS</p>
+                </div>
+                <div class="section-SC">
+                    <?php 
+                        // Pega as 3 últimas salas de aula
+                        //$classrooms = array_slice($classrooms, -3);
+                    ?>
+                    <div class="container-SC">
+                        <a href="#">
+                            <img src="../Resources/Images/img-1.png" alt="Imagem">
+                        </a>
+                    </div>
+                    <div class="container-SC">
+                        <a href="#">
+                            <img src="../Resources/Images/img-1.png" alt="Imagem">
+                        </a>
+                    </div>
+                    <div class="container-SC">
+                        <a href="#">
+                            <img src="../Resources/Images/img-1.png" alt="Imagem">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="view-more-SC">
+                    <a href="">VER TODAS AS SALAS</a>
+                </div>
+            </div>
         </section>
     </main>
     <script src="../Resources/Js/sandwich-menu.js"></script>
-</body>
-</html>
