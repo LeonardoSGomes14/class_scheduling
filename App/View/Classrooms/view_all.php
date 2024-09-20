@@ -8,6 +8,7 @@ echo "<tr><th>Identificação</th><th>Condição da sala</th><th>Equipamentos</t
 
 try {
     foreach ($classrooms as $classroom) {
+
         echo "<tr>";
         echo "<td>" . htmlspecialchars($classroom['identification']) . "</td>";
         echo "<td>" . htmlspecialchars($classroom['conditionstatus']) . "</td>";
@@ -19,6 +20,8 @@ try {
 } catch (PDOException $e) {
     echo "<p>Erro ao exibir salas de aula: " . $e->getMessage() . "</p>";
 }
+
+
 
 echo "</table>";
 ?>
