@@ -4,6 +4,11 @@ include_once '../Config/config.php';
 include_once '../App/Controller/ClassroomController.php';
 include_once '../App/Controller/SchedulingController.php';
 
+if (!isset($_SESSION['userID']) || $_SESSION['nao_autenticado'] === true) {
+    header('Location: sign-in.php');
+    exit();
+}
+
 $id_class = $_GET['id'];
 
 $classroomController = new ClassroomController($pdo);
@@ -20,7 +25,12 @@ if (isset($_POST['scheduling_time']) &&
         exit();
     }
 
-if (isset($_POST['undo_reservation'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
+    isset($_POST['undo_reservation'])) {
+        $id_scheduling = $_POST['id_scheduling'];
+        $schedulingController->undoScheduling($id_scheduling, $id_teacher);
+    }
+/*if (isset($_POST['undo_reservation'])) {
     $id_teacher = $_SESSION['userID'];
     $message = $schedulingController->undoScheduling($id_class, $id_teacher);
     $_SESSION['message'] = $message;
@@ -28,7 +38,7 @@ if (isset($_POST['undo_reservation'])) {
     $classroomController->updateClassroomStatus($id_class, 0);
     header('Location: scheduling.php?id=' . $id_class);
     exit();
-}
+}*/
 
 $classrooms = $classroomController->listClassroomsByID($id_class);
 $schedulings = $schedulingController->listSchedulings();
@@ -76,8 +86,10 @@ $schedulings = $schedulingController->listSchedulings();
             <?php else: ?>
                 <h2>Sala Reservada pelo(a) professor(a) <?php echo $_SESSION['userName']; ?></h2>
                 <form method="post">
-                    <input type="hidden" name="undo_reservation" value="1">
-                    <button type="submit">Desfazer Reserva</button>
+                    <?php foreach ($schedulings as $scheduling): ?>
+                    <input type="hidden" name="id_scheduling" value="<?php echo $scheduling['id_scheduling'] ?>">
+                    <button type="submit" name="undo_reservation">Desfazer Reserva</button>
+                    <?php endforeach ?>
                 </form>
                 <?php endif; ?>
         </section>
