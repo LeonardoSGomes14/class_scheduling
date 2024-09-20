@@ -44,7 +44,7 @@ $classrooms = $classroomController->listClassrooms();
             <div class="list-nav">
                 <ul class="ul-nav">
                     <li class="button-nav">
-                        <a class="link-nav" href="">
+                        <a class="link-nav" href="calendario/views/user/">
                             <img class="icons" src="../Resources/Images/calendar.png" alt="Calendario-icon">
                             <p class="nav-text">CALENDÁRIO</p>
                         </a>
