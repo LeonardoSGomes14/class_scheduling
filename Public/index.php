@@ -62,28 +62,19 @@ $classrooms = $classroomController->listClassrooms();
                 </div>
                 <div class="section-DC">
                     <?php 
-                        // Pega as 3 últimas salas de aula
-                        //$classrooms = array_slice($classrooms, -3);
+                        $classrooms = array_slice($classrooms, -3);
+                        foreach ($classrooms as $classroom):
                     ?>
                     <div class="container-DC">
-                        <a href="#">
+                        <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
                             <img src="../Resources/Images/img-1.png" alt="Imagem">
                         </a>
                     </div>
-                    <div class="container-DC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
-                        </a>
-                    </div>
-                    <div class="container-DC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
-                        </a>
-                    </div>
+                    <?php endforeach ?>
                 </div>
                 
                 <div class="view-more-DC">
-                    <a href="">VER TODAS AS SALAS</a>
+                    <a href="disp_classrooms_list.php">VER TODAS AS SALAS</a>
                 </div>
             </div>
             <div class="div-SC">

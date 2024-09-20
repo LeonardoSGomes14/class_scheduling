@@ -34,6 +34,7 @@ if (isset($_POST['identification']) &&
     </header>
     <main>
         <section>
+            <a href="index.php">Voltar</a>
             <h2>Registro de Classe</h2>
             <form method="post">
                 <label>

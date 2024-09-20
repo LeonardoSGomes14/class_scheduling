@@ -12,14 +12,17 @@ $classroomController = new ClassroomController($pdo);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de todas as salas de aula</title>
 </head>
-
 <body>
+    <header>
 
-    <?php
-    $classroomController->showClassroomsList();
-    ?>
-    
-
+    </header>
+    <main>
+        <section>
+        <a href="index.php">Voltar</a>
+            <?php
+                $classroomController->showClassroomsList();
+            ?>
+        </section>
+    </main>
 </body>
-
 </html>
