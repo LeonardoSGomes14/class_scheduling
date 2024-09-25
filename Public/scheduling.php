@@ -89,7 +89,7 @@ $scheduling = $schedulingController->getSchedulingByClassroom($id_class);
         <section>
             <?php if($classrooms['conditionstatus'] == 0 ): ?>
             <h2>Reservar Sala</h2>
-            <form method="post">
+            <form action="../sendmail.php" method="post">
                 <div class="hp">
                 <label>
                     <span><i class="fas fa-clock"></i>Horário de Reserva:</span><br>
