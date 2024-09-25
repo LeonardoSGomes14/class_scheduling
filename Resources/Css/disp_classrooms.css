@@ -92,3 +92,22 @@ body {
     text-transform: uppercase;
     text-align: center;
 }
+
+/* Media queries para diferentes tamanhos de tela */
+@media (max-width: 1200px) {
+    .classroom-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas para telas médias */
+    }
+}
+
+@media (max-width: 768px) {
+    .classroom-grid {
+        grid-template-columns: 1fr; /* 1 coluna para telas pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .classroom-title {
+        font-size: 2rem; /* Reduzir o tamanho da fonte em telas muito pequenas */
+    }
+}
