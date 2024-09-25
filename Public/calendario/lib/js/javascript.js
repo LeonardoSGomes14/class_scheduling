@@ -1,6 +1,18 @@
 (function(win, doc) {
   'use strict';
 
+  let selectedEvents = []; // Armazena os eventos selecionados
+
+  // Função para exibir ou ocultar a caixa de exclusão
+  function toggleDeleteBox() {
+      let deleteBox = doc.getElementById('delete-box');
+      if (selectedEvents.length > 0) {
+          deleteBox.style.display = 'block'; // Exibe a caixa se houver eventos selecionados
+      } else {
+          deleteBox.style.display = 'none'; // Oculta a caixa se não houver eventos selecionados
+      }
+  }
+
   //Exibir Calendário
   function getCalendar(perfil, div) { 
       let calendarEl = doc.querySelector(div);
@@ -37,17 +49,67 @@
               resizeAndDrop(info);
           },
           eventClick: function(info) {
-              if (perfil === 'manager') {
-                  win.location.href = `/class_scheduling/Public/calendario/views/manager/editar.php?id=${info.event.id}`;
-              } else {
-                  window.open(`/class_scheduling/Public/evento.php?id=${info.event.id}`, 'Evento', 'width=800,height=200');
-              }
+            const eventId = info.event.id;
 
-              info.el.style.borderColor = 'red';
-          }
-      });
-      calendar.render();
-  }
+            // Seleção múltipla com Ctrl
+            if (win.event.ctrlKey) {
+                // Adiciona ou remove o evento da seleção
+                if (selectedEvents.includes(eventId)) {
+                    selectedEvents = selectedEvents.filter(id => id !== eventId);
+                    info.el.classList.remove('selected'); // Remove a classe de seleção
+                } else {
+                    selectedEvents.push(eventId);
+                    info.el.classList.add('selected'); // Adiciona a classe de seleção
+                }
+                toggleDeleteBox(); // Atualiza a exibição da caixa de exclusão
+            } else {
+                // Comportamento padrão para o clique único
+                if (perfil === 'manager') {
+                    win.location.href = `/class_scheduling/Public/calendario/views/manager/editar.php?id=${eventId}`;
+                } else {
+                    window.open(`/class_scheduling/Public/evento.php?id=${eventId}`, 'Evento', 'width=800,height=200');
+                }
+
+                // Limpa a seleção se não estiver segurando Ctrl
+                if (selectedEvents.length > 0) {
+                    selectedEvents.forEach(id => {
+                        const eventEl = calendar.getEventById(id).el;
+                        if (eventEl) {
+                            eventEl.classList.remove('selected');
+                        }
+                    });
+                    selectedEvents = [];
+                    toggleDeleteBox(); // Oculta a caixa de exclusão
+                }
+            }
+        }
+    });
+    calendar.render();
+}
+
+  // Função para deletar eventos selecionados
+  function deleteSelectedEvents() {
+    if (confirm("Deseja mesmo apagar os eventos selecionados?")) {
+        fetch('/class_scheduling/Public/calendario/controllers/ControllerDelete.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ eventIds: selectedEvents })
+        }).then(response => response.json())
+          .then(data => {
+            if (data.status === 'success') {
+                alert('Eventos excluídos com sucesso!');
+                // Atualiza o calendário
+                location.reload();
+            } else {
+                alert('Erro ao excluir eventos: ' + data.message);
+            }
+        }).catch(error => {
+            console.error('Erro:', error);
+        });
+    }
+}
 
   if (doc.querySelector('.calendarUser')) {
       getCalendar('user', '.calendarUser');
@@ -122,5 +184,12 @@
   if (form) {
       form.addEventListener('submit', handleEventSubmission);
   }
+  let deleteButton = doc.getElementById('delete-events');
+  if (deleteButton) {
+      deleteButton.addEventListener('click', deleteSelectedEvents);
+  }
+
+  // Exibe a caixa de exclusão quando eventos são selecionados
+  toggleDeleteBox();
 
 })(window, document);

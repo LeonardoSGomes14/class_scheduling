@@ -13,14 +13,17 @@ $usersController = new UserController($pdo);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de usuários</title>
 </head>
-
 <body>
+    <header>
 
-    <?php
-    $usersController->showUsersList();
-    ?>
-    
-
+    </header>
+    <main>
+        <section>
+            <a href="index.php">Voltar</a>
+            <?php
+                $usersController->showUsersList();
+            ?>
+        </section>
+    </main>
 </body>
-
 </html>

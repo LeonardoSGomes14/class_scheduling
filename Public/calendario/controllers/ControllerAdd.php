@@ -8,7 +8,7 @@ $title = filter_input(INPUT_POST, 'title', FILTER_DEFAULT);
 $description = filter_input(INPUT_POST, 'description', FILTER_DEFAULT);
 $color = filter_input(INPUT_POST, 'color', FILTER_DEFAULT);
 $tempoaula = filter_input(INPUT_POST, 'tempoaula', FILTER_DEFAULT);
-$freq = filter_input(INPUT_POST, 'freq', FILTER_DEFAULT); // Frequência de repetição
+$freq = filter_input(INPUT_POST, 'repeat', FILTER_DEFAULT); // Frequência de repetição
 
 $start = new \DateTime($date. ' ' . $time, new \DateTimeZone('America/Sao_Paulo'));
 

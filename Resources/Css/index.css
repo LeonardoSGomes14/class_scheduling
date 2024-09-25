@@ -36,12 +36,18 @@
     width: 100vw;
     margin: 2vh 0 2vh 0;
 }
-.container-DC{
+.container-DC {
+    position: relative;
     min-width: 27.5vw;
     border-radius: 20px;
     transform: .3s;
 }
-.container-DC img{
+
+.overlay-DC {
+    position: relative;
+}
+
+.container-DC img {
     width: 27.5vw;
     aspect-ratio: 16 / 9;
     border-radius: 10px;
@@ -49,6 +55,19 @@
     -moz-box-shadow: 0px 0px 41px -23px rgba(0,0,0,0.74);
     box-shadow: 0px 0px 41px -23px rgba(0,0,0,0.74);
     transition: .3s;
+}
+
+.text-over-image {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: "SUSE", sans-serif;
 }
 .container-DC img:hover {
     width: 29vw;
@@ -187,3 +206,4 @@
         padding: 0 1vw 0 0;
     }
 }
+

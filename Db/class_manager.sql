@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Set-2024 às 20:16
+-- Tempo de geração: 20-Set-2024 às 15:35
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -46,7 +46,7 @@ INSERT INTO `classrooms` (`id_class`, `identification`, `conditionstatus`, `equi
 (4, 'A21', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
 (5, 'A20', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
 (6, 'A19', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
-(7, 'A18', 1, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
+(7, 'A18', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
 (8, 'A17', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
 (9, 'A16', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
 (10, 'A15', 0, 'projetor multimídia, tela de projeção, computador ou notebook, cadeiras e mesas, Além disso, há ventiladores e ar-condicionado, alto-falantes e apagador com pincéis.', 'Ventiladores com problemas'),
@@ -71,16 +71,10 @@ CREATE TABLE `scheduling` (
   `id_scheduling` int(11) NOT NULL,
   `id_teacher` int(11) NOT NULL,
   `teacher_name` varchar(255) NOT NULL,
+  `id_class` int(11) NOT NULL,
   `scheduling_time` datetime NOT NULL,
   `end_time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Extraindo dados da tabela `scheduling`
---
-
-INSERT INTO `scheduling` (`id_scheduling`, `id_teacher`, `teacher_name`, `scheduling_time`, `end_time`) VALUES
-(46, 6, 'Frederico Alberto da Silva', '2024-09-18 15:10:00', '2024-09-18 16:10:00');
 
 -- --------------------------------------------------------
 
@@ -169,7 +163,8 @@ ALTER TABLE `classrooms`
 --
 ALTER TABLE `scheduling`
   ADD PRIMARY KEY (`id_scheduling`),
-  ADD KEY `scheduling_id_teacher_id_user_users_FK` (`id_teacher`);
+  ADD KEY `scheduling_id_teacher_id_user_users_FK` (`id_teacher`),
+  ADD KEY `scheduling_id_class_id_class_FK` (`id_class`);
 
 --
 -- Índices para tabela `subjects`
@@ -197,7 +192,7 @@ ALTER TABLE `classrooms`
 -- AUTO_INCREMENT de tabela `scheduling`
 --
 ALTER TABLE `scheduling`
-  MODIFY `id_scheduling` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_scheduling` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de tabela `subjects`
@@ -219,6 +214,7 @@ ALTER TABLE `users`
 -- Limitadores para a tabela `scheduling`
 --
 ALTER TABLE `scheduling`
+  ADD CONSTRAINT `scheduling_id_class_id_class_FK` FOREIGN KEY (`id_class`) REFERENCES `classrooms` (`id_class`),
   ADD CONSTRAINT `scheduling_id_teacher_id_user_users_FK` FOREIGN KEY (`id_teacher`) REFERENCES `users` (`id_users`);
 COMMIT;
 

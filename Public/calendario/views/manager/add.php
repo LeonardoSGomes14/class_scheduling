@@ -26,10 +26,10 @@ $date= new \DateTime($_GET['date'], new \DateTimeZone('America/Sao_Paulo'));
     Repetir Evento:
   <select class="campo-input" id="repeat" name="repeat">
     <option value="none">Não repetir</option>
-    <option value="daily">Todos os dias</option>
-    <option value="weekly">Toda semana</option>
-    <option value="monthly">Todo mês</option>
-    <option value="yearly">Todo ano</option>
+    <option value="DAILY">Todos os dias</option>
+    <option value="WEEKLY">Toda semana</option>
+    <option value="MONTHLY">Todo mês</option>
+    <option value="YEARLY">Todo ano</option>
   </select>
     <input class= "campo-submit" type="submit" value="Marcar Aula">
 </form>
