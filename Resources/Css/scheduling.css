@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+body {
+    background-color: #E1E1E1;
+}
+
+.id-class {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: baseline;
+    font-family: "SUSE", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #0D8473;
+    margin-left: 15vh;
+   
+}
+
+
+main {
+    display: flex;
+}
+
+.esq {
+  
+    width: 40vw;
+}
+
+.dir {
+    font-family: "SUSE", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    width: 55vw;
+    margin-top: 15vh;
+}
+
+
+.dir p, span, input, h2 {
+    margin-left: 15px;
+}
+
+    #id {
+        font-size: 90px;
+        color: white;
+    }
+
+.id-class img {
+    z-index: 0;
+    position: relative;
+}
+
+.id-class #id {
+    position: absolute;
+    z-index: 100;
+}
+
+
+
+.img-sc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+i {
+    margin-right: 15px;
+}
+
+
+input[type="datetime-local"] {
+    font-size: 20px;
+    font-family: "SUSE", sans-serif;
+    height: 3rem;
+    width: 100%;
+    max-width: 300px; /* Define um limite máximo */
+    box-sizing: border-box; /* Garante que padding/border sejam incluídos no tamanho */
+}
+
+ button {
+    background-color: #17A48F;
+    background-image: linear-gradient(to right, #17A48F, #1DB9A4);
+    color: white;
+    font-family: "SUSE", sans-serif;
+    font-size: 20px;
+    width: 15vw;
+    height: 5vh;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+   margin-bottom: 15px;
+}
+
+
+.bp {
+    display: flex;
+    justify-content: center;
+}
+
+.hp {
+    display: flex;
+    justify-content: space-around;
+}
+
+ button:hover {
+   
+    transform: scale(1.05); /* Aumenta um pouco o botão ao passar o mouse */
+}
+      
+       button:hover {
+        transform: translateY(-3px);
+        background-color: #168d7b;
+      }
+      
+
+    input:focus, input:focus, select:focus {
+        box-shadow: 0 0 0 0;
+        
+        outline: 0;
+    } 
+

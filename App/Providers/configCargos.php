@@ -19,6 +19,8 @@ if (isset($_POST['email'])) {
         $_SESSION['userName'] = $result['name'];
         $_SESSION['userEmail'] = $result['email'];
         $_SESSION['userType'] = $result['user_type'];
+        $_SESSION['userYear'] = $result['school_year'];
+        $_SESSION['userSubject'] = $result['subject'];
         $_SESSION['nao_autenticado'] = false;
 
         if ($_SESSION['userType'] == 1) { // PROFESSOR
@@ -26,7 +28,7 @@ if (isset($_POST['email'])) {
         } elseif ($_SESSION['userType'] == 2) { // ALUNO
             header('Location: ../../Public/index.php');
         } elseif ($_SESSION['userType'] == 3) { // ADMINISTRADOR
-            header('Location: ../../Public/Adm/registerClass.php');
+            header('Location: ../../Public/Adm/index.php');
         }
     } else {
         $_SESSION['nao_autenticado'] = true;
