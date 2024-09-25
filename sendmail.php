@@ -1,23 +1,20 @@
 <?php
-// Inclua o autoload do Composer para usar o PHPMailer
 require 'vendor/autoload.php';
 
-// Inclua sua conexão com o banco de dados
 include 'Config\config.php';
 
-// Defina a turma para a qual a aula foi agendada (provavelmente será passada pelo formulário de agendamento)
-$school_year = $_POST['school_year']; // ou o valor que você obtém do agendamento
+$school_year = $_POST['school_year'];
 
-// Consulta para buscar os emails dos students da turma
+
 $sql = "SELECT name, email FROM users WHERE school_year = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $school_year);
 $stmt->execute();
 $result = $stmt->get_result();
 
-// Verifique se encontrou students na turma
+
 if ($result->num_rows > 0) {
-    // Itere sobre os students e envie um email para cada um deles
+
     while ($row = $result->fetch_assoc()) {
         $name_student = $row['name'];
         $email_student = $row['email'];
@@ -36,7 +33,7 @@ if ($result->num_rows > 0) {
 
         // Configurar remetente e destinatário
         $mail->setFrom('seuemail@seuservidor.com', 'Sua Escola');
-        $mail->addAddress($email_student, $name_student); // Email e name do student
+        $mail->addAddress($email_student, $name_student); 
 
         // Conteúdo do email
         $mail->isHTML(true);
@@ -55,6 +52,6 @@ if ($result->num_rows > 0) {
     echo "Nenhum estudante encontrado para a turma.";
 }
 
-// Fechar a conexão
+
 $stmt->close();
 $conn->close();
