@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Set-2024 às 15:35
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.2.0
+-- Tempo de geração: 25/09/2024 às 13:30
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `classrooms`
+-- Estrutura para tabela `classrooms`
 --
 
 CREATE TABLE `classrooms` (
@@ -36,7 +36,7 @@ CREATE TABLE `classrooms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `classrooms`
+-- Despejando dados para a tabela `classrooms`
 --
 
 INSERT INTO `classrooms` (`id_class`, `identification`, `conditionstatus`, `equipaments`, `description`) VALUES
@@ -64,7 +64,22 @@ INSERT INTO `classrooms` (`id_class`, `identification`, `conditionstatus`, `equi
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `scheduling`
+-- Estrutura para tabela `emails`
+--
+
+CREATE TABLE `emails` (
+  `id_mail` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `content` text NOT NULL,
+  `subject_name` varchar(150) NOT NULL,
+  `school_year` varchar(50) NOT NULL,
+  `teacher_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `scheduling`
 --
 
 CREATE TABLE `scheduling` (
@@ -73,13 +88,14 @@ CREATE TABLE `scheduling` (
   `teacher_name` varchar(255) NOT NULL,
   `id_class` int(11) NOT NULL,
   `scheduling_time` datetime NOT NULL,
-  `end_time` datetime NOT NULL
+  `end_time` datetime NOT NULL,
+  `school_year` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `subjects`
+-- Estrutura para tabela `subjects`
 --
 
 CREATE TABLE `subjects` (
@@ -88,7 +104,7 @@ CREATE TABLE `subjects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `subjects`
+-- Despejando dados para a tabela `subjects`
 --
 
 INSERT INTO `subjects` (`id_subject`, `name`) VALUES
@@ -106,7 +122,7 @@ INSERT INTO `subjects` (`id_subject`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `users`
+-- Estrutura para tabela `users`
 --
 
 CREATE TABLE `users` (
@@ -120,7 +136,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Extraindo dados da tabela `users`
+-- Despejando dados para a tabela `users`
 --
 
 INSERT INTO `users` (`id_users`, `name`, `email`, `password`, `user_type`, `school_year`, `subject`) VALUES
@@ -153,13 +169,19 @@ INSERT INTO `users` (`id_users`, `name`, `email`, `password`, `user_type`, `scho
 --
 
 --
--- Índices para tabela `classrooms`
+-- Índices de tabela `classrooms`
 --
 ALTER TABLE `classrooms`
   ADD PRIMARY KEY (`id_class`);
 
 --
--- Índices para tabela `scheduling`
+-- Índices de tabela `emails`
+--
+ALTER TABLE `emails`
+  ADD PRIMARY KEY (`id_mail`);
+
+--
+-- Índices de tabela `scheduling`
 --
 ALTER TABLE `scheduling`
   ADD PRIMARY KEY (`id_scheduling`),
@@ -167,19 +189,19 @@ ALTER TABLE `scheduling`
   ADD KEY `scheduling_id_class_id_class_FK` (`id_class`);
 
 --
--- Índices para tabela `subjects`
+-- Índices de tabela `subjects`
 --
 ALTER TABLE `subjects`
   ADD PRIMARY KEY (`id_subject`);
 
 --
--- Índices para tabela `users`
+-- Índices de tabela `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_users`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
@@ -189,10 +211,16 @@ ALTER TABLE `classrooms`
   MODIFY `id_class` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT de tabela `emails`
+--
+ALTER TABLE `emails`
+  MODIFY `id_mail` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `scheduling`
 --
 ALTER TABLE `scheduling`
-  MODIFY `id_scheduling` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id_scheduling` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de tabela `subjects`
@@ -207,11 +235,11 @@ ALTER TABLE `users`
   MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `scheduling`
+-- Restrições para tabelas `scheduling`
 --
 ALTER TABLE `scheduling`
   ADD CONSTRAINT `scheduling_id_class_id_class_FK` FOREIGN KEY (`id_class`) REFERENCES `classrooms` (`id_class`),

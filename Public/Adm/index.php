@@ -17,6 +17,9 @@
             <a href="registerClass.php">Adicionar Classe</a><br>
             <a href="all_classrooms_list.php">Ver Todas as Classes</a><br><br>
 
+            <a href="registerGroups.php">Adicionar Grupo</a><br>
+            <a href="Groups.php">Ver Todos os Grupos</a><br><br>
+
             <a href="../../App/Providers/logout.php">Sair</a>
         </section>
     </main>
