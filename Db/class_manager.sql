@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/09/2024 às 13:30
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Tempo de geração: 25-Set-2024 às 20:10
+-- Versão do servidor: 10.4.27-MariaDB
+-- versão do PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `classrooms`
+-- Estrutura da tabela `classrooms`
 --
 
 CREATE TABLE `classrooms` (
@@ -36,7 +36,7 @@ CREATE TABLE `classrooms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `classrooms`
+-- Extraindo dados da tabela `classrooms`
 --
 
 INSERT INTO `classrooms` (`id_class`, `identification`, `conditionstatus`, `equipaments`, `description`) VALUES
@@ -64,7 +64,7 @@ INSERT INTO `classrooms` (`id_class`, `identification`, `conditionstatus`, `equi
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `emails`
+-- Estrutura da tabela `emails`
 --
 
 CREATE TABLE `emails` (
@@ -79,7 +79,46 @@ CREATE TABLE `emails` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `scheduling`
+-- Estrutura da tabela `groups`
+--
+
+CREATE TABLE `groups` (
+  `id_group` int(11) NOT NULL,
+  `teacher` varchar(255) NOT NULL,
+  `year_school` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Extraindo dados da tabela `groups`
+--
+
+INSERT INTO `groups` (`id_group`, `teacher`, `year_school`) VALUES
+(1, 'Rodrigo Humberto Figuereto', '9 Ano do Ensino Fundamental'),
+(2, 'Frederico Alberto da Silva', '9 Ano do Ensino Fundamental'),
+(3, 'Bianca de Souza', '9 Ano do Ensino Fundamental'),
+(4, 'Helena Roberta de Andrade', '8 Ano do Ensino Fundamental'),
+(5, 'Luan Castilho', '8 Ano do Ensino Fundamental'),
+(6, 'Beatriz Andrade', '8 Ano do Ensino Fundamental'),
+(7, 'Rodrigo Humberto Figuereto', '7 Ano do Ensino Fundamental'),
+(8, 'Rafael Moura', '7 Ano do Ensino Fundamental'),
+(9, 'Bianca de Souza', '7 Ano do Ensino Fundamental'),
+(10, 'Luan Castilho', '6 Ano do Ensino Fundamental'),
+(11, 'Frederico Alberto da Silva', '6 Ano do Ensino Fundamental'),
+(12, 'Rafael Moura', '6 Ano do Ensino Fundamental'),
+(13, 'Helena Roberta de Andrade', '1 Ano do Ensino Médio'),
+(14, 'Beatriz Andrade', '1 Ano do Ensino Médio'),
+(15, 'Frederico Alberto da Silva', '1 Ano do Ensino Médio'),
+(16, 'Bianca de Souza', '2 Ano do Ensino Médio'),
+(17, 'Rodrigo Humberto Figuereto', '2 Ano do Ensino Médio'),
+(18, 'Rafael Moura', '2 Ano do Ensino Médio'),
+(19, 'Bianca de Souza', '3 Ano do Ensino Médio'),
+(20, 'Helena Roberta de Andrade', '3 Ano do Ensino Médio'),
+(21, 'Rodrigo Humberto Figuereto', '3 Ano do Ensino Médio');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `scheduling`
 --
 
 CREATE TABLE `scheduling` (
@@ -95,7 +134,7 @@ CREATE TABLE `scheduling` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `subjects`
+-- Estrutura da tabela `subjects`
 --
 
 CREATE TABLE `subjects` (
@@ -104,7 +143,7 @@ CREATE TABLE `subjects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `subjects`
+-- Extraindo dados da tabela `subjects`
 --
 
 INSERT INTO `subjects` (`id_subject`, `name`) VALUES
@@ -122,7 +161,7 @@ INSERT INTO `subjects` (`id_subject`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `users`
+-- Estrutura da tabela `users`
 --
 
 CREATE TABLE `users` (
@@ -136,10 +175,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Despejando dados para a tabela `users`
+-- Extraindo dados da tabela `users`
 --
 
 INSERT INTO `users` (`id_users`, `name`, `email`, `password`, `user_type`, `school_year`, `subject`) VALUES
+(1, 'Administrador', 'administrativo@gmail.com', '123', 3, '', ''),
 (6, 'Frederico Alberto da Silva', 'fred@gmail.com', '1234567', 1, '', 'Biologia'),
 (7, 'Rodrigo Humberto Figuereto', 'fig@gmail.com', '1234567', 1, '', 'Química'),
 (8, 'Bianca de Souza', 'bia@gmail.com', '1234567', 1, '', 'Física'),
@@ -161,27 +201,32 @@ INSERT INTO `users` (`id_users`, `name`, `email`, `password`, `user_type`, `scho
 (24, 'Luísa Martins', 'luisa@gmail.com', '12345', 2, '2 Ano do Ensino Médio', ''),
 (25, 'Luísa Martins', 'luisa@gmail.com', '12345', 2, '2 Ano do Ensino Médio', ''),
 (26, 'Luísa Martins', 'luisa@gmail.com', '12345', 2, '2 Ano do Ensino Médio', ''),
-(27, 'Luísa Martins', 'luisa@gmail.com', '12345', 2, '2 Ano do Ensino Médio', ''),
-(29, 'Administrador', 'administrativo@gmail.com', '123', 3, '', '');
+(27, 'Luísa Martins', 'luisa@gmail.com', '12345', 2, '2 Ano do Ensino Médio', '');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `classrooms`
+-- Índices para tabela `classrooms`
 --
 ALTER TABLE `classrooms`
   ADD PRIMARY KEY (`id_class`);
 
 --
--- Índices de tabela `emails`
+-- Índices para tabela `emails`
 --
 ALTER TABLE `emails`
   ADD PRIMARY KEY (`id_mail`);
 
 --
--- Índices de tabela `scheduling`
+-- Índices para tabela `groups`
+--
+ALTER TABLE `groups`
+  ADD PRIMARY KEY (`id_group`);
+
+--
+-- Índices para tabela `scheduling`
 --
 ALTER TABLE `scheduling`
   ADD PRIMARY KEY (`id_scheduling`),
@@ -189,19 +234,19 @@ ALTER TABLE `scheduling`
   ADD KEY `scheduling_id_class_id_class_FK` (`id_class`);
 
 --
--- Índices de tabela `subjects`
+-- Índices para tabela `subjects`
 --
 ALTER TABLE `subjects`
   ADD PRIMARY KEY (`id_subject`);
 
 --
--- Índices de tabela `users`
+-- Índices para tabela `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_users`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
@@ -217,10 +262,16 @@ ALTER TABLE `emails`
   MODIFY `id_mail` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `groups`
+--
+ALTER TABLE `groups`
+  MODIFY `id_group` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
 -- AUTO_INCREMENT de tabela `scheduling`
 --
 ALTER TABLE `scheduling`
-  MODIFY `id_scheduling` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id_scheduling` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT de tabela `subjects`
@@ -235,11 +286,11 @@ ALTER TABLE `users`
   MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- Restrições para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Restrições para tabelas `scheduling`
+-- Limitadores para a tabela `scheduling`
 --
 ALTER TABLE `scheduling`
   ADD CONSTRAINT `scheduling_id_class_id_class_FK` FOREIGN KEY (`id_class`) REFERENCES `classrooms` (`id_class`),
