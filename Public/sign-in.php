@@ -30,18 +30,18 @@ include_once '../Config/config.php';
   <div class="loader"></div>
 </div>
         
-<form>
+<form method="post" action="../App\Providers\configCargos.php">
 <div class="form-ico">
 <img src="../Resources/Images/logosesi.jpg">    
 </div>
 <h1>Faça login para verificar as salas disponíveis:</h1>
 <div class="form-input">
 <label id="direction"><i class="fa fa-user"></i>Usuário</label>
-<input type="text" name="usuario" placeholder="Usuário">
+<input type="text" name="email" placeholder="Usuário">
 
 
 <label id="direction"><i class="fa fa-lock"></i>Senha</label>
-<input type="text" name="senha" placeholder="Senha">
+<input type="text" name="password" placeholder="Senha">
 
 
 
