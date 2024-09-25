@@ -94,6 +94,13 @@
     text-decoration: none;
     padding: 0 2vw 0 0;
 }
+
+/* Ajuste para garantir que os containers das classes fiquem abaixo do menu */
+.div-DC, .div-SC {
+    position: relative;
+    z-index: 1; /* Definimos um z-index menor que o do menu para garantir que o menu o sobreponha */
+}
+
 .div-SC{
     display: flex;
     justify-content: center;
