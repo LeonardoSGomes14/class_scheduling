@@ -30,7 +30,7 @@ include_once '../Config/config.php';
   <div class="loader"></div>
 </div>
         
-<form action="../App/Providers/configCargos.php" method="post">
+<form method="post" action="../App/Providers/configCargos.php">
 <div class="form-ico">
 <img src="../Resources/Images/logosesi.jpg">    
 </div>
