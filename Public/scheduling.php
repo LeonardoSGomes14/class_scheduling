@@ -85,6 +85,7 @@ $scheduling = $schedulingController->getSchedulingByClassroom($id_class);
             <p><strong><i class="fas fa-file-alt"></i>Descrição: </strong><?php echo $classrooms['description'] ?></p>
             <p><strong><i class="fas fa-check"></i>Status da Sala: </strong><?php echo $classrooms['conditionstatus'] ? 'Reservado' : 'Livre'; ?></p>
         
+            <?php if($_SESSION['userType'] == 1 || $_SESSION['userType'] == 3): ?>
         <section>
             <?php if($classrooms['conditionstatus'] == 0 ): ?>
             <h2>Reservar Sala</h2>
@@ -125,6 +126,7 @@ $scheduling = $schedulingController->getSchedulingByClassroom($id_class);
                     <button type="submit" name="undo_reservation">Desfazer Reserva</button>
                 </form>
                 <?php endif; ?>
+            <?php endif; ?>
             <?php endif; ?>
         </section>
         </section>
