@@ -1,6 +1,6 @@
 <?php
-include_once '../../Config/config.php';
-include_once '../../App/Controller/ClassroomController.php';
+include_once '../Config/config.php';
+include_once '../App/Controller/ClassroomController.php';
 $classroomController = new ClassroomController($pdo);
 ?>
 
@@ -14,7 +14,7 @@ $classroomController = new ClassroomController($pdo);
 </head>
 
 <body>
-
+<a href="index.php">Voltar</a>
     <?php
     $classroomController->showDispClassroomsList();
     ?>

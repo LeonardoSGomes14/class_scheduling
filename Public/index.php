@@ -62,30 +62,25 @@ $classrooms = $classroomController->listClassrooms();
                 </div>
                 <div class="section-DC">
                     <?php 
-                        // Pega as 3 últimas salas de aula
-                        //$classrooms = array_slice($classrooms, -3);
+                        $classrooms = array_slice($classrooms, -3);
+                        foreach ($classrooms as $classroom):
                     ?>
                     <div class="container-DC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
+                        <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
+                            <div class="overlay-DC">
+                                <img src="../Resources/Images/img-1.png" alt="<?php echo $classroom['identification'] ?>">
+                                <p class="text-over-image"><?php echo $classroom['identification']; ?></p>
+                            </div>
                         </a>
                     </div>
-                    <div class="container-DC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
-                        </a>
-                    </div>
-                    <div class="container-DC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
-                        </a>
-                    </div>
+                    <?php endforeach ?>
                 </div>
-                
+    
                 <div class="view-more-DC">
-                    <a href="">VER TODAS AS SALAS</a>
+                    <a href="disp_classrooms_list.php">VER TODAS AS SALAS</a>
                 </div>
             </div>
+
             <div class="div-SC">
                 <div class="tittle-SC">
                     <p>SALAS AGENDADAS</p>
@@ -113,7 +108,7 @@ $classrooms = $classroomController->listClassrooms();
                 </div>
                 
                 <div class="view-more-SC">
-                    <a href="">VER TODAS AS SALAS</a>
+                    <a href="ind_classrooms_list.php">VER TODAS AS SALAS</a>
                 </div>
             </div>
         </section>
