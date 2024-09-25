@@ -67,16 +67,20 @@ $classrooms = $classroomController->listClassrooms();
                     ?>
                     <div class="container-DC">
                         <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
+                            <div class="overlay-DC">
+                                <img src="../Resources/Images/img-1.png" alt="<?php echo $classroom['identification'] ?>">
+                                <p class="text-over-image"><?php echo $classroom['identification']; ?></p>
+                            </div>
                         </a>
                     </div>
                     <?php endforeach ?>
                 </div>
-                
+    
                 <div class="view-more-DC">
                     <a href="disp_classrooms_list.php">VER TODAS AS SALAS</a>
                 </div>
             </div>
+
             <div class="div-SC">
                 <div class="tittle-SC">
                     <p>SALAS AGENDADAS</p>
