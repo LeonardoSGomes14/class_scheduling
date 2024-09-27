@@ -26,6 +26,13 @@ class GroupModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function selectGroups($teacher) {
+        $sql = "SELECT * FROM groups WHERE teacher = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$teacher]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function deleteGroup($id_group) {
         $sql = "DELETE FROM groups WHERE id_group = ?";
         $stmt = $this->pdo->prepare($sql);

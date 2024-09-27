@@ -3,6 +3,7 @@ session_start();
 include_once '../Config/config.php';
 include_once '../App/Controller/ClassroomController.php';
 include_once '../App/Controller/SchedulingController.php';
+include_once '../App/Controller/GroupsController.php';
 
 if (!isset($_SESSION['userID']) || $_SESSION['nao_autenticado'] === true) {
     header('Location: sign-in.php');
@@ -10,15 +11,20 @@ if (!isset($_SESSION['userID']) || $_SESSION['nao_autenticado'] === true) {
 }
 
 $id_class = $_GET['id'];
+$teacher = $_SESSION['userName'];
 
+$groupController = new GroupController($pdo);
 $classroomController = new ClassroomController($pdo);
 $schedulingController = new SchedulingController($pdo);
 
+
+
 if (isset($_POST['id_class']) &&
     isset($_POST['scheduling_time']) &&
-    isset($_POST['end_time'])) {
+    isset($_POST['end_time']) &&
+    isset($_POST['school_year'])) {
 
-        $schedulingController->createScheduling($_POST['id_class'], $_POST['scheduling_time'], $_POST['end_time']);
+        $schedulingController->createScheduling($_POST['id_class'], $_POST['scheduling_time'], $_POST['end_time'], $_POST['school_year']);
         $classroomController->updateClassroomStatus($id_class, 1);
 
         $_SESSION['message'] = 'Agendamento feito com sucesso!';
@@ -41,6 +47,7 @@ if (isset($_POST['id_class']) &&
 $classrooms = $classroomController->listClassroomsByID($id_class);
 $schedulings = $schedulingController->listSchedulings();
 $scheduling = $schedulingController->getSchedulingByClassroom($id_class);
+$groups = $groupController->selectGroups($teacher);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,7 +96,7 @@ $scheduling = $schedulingController->getSchedulingByClassroom($id_class);
         <section>
             <?php if($classrooms['conditionstatus'] == 0 ): ?>
             <h2>Reservar Sala</h2>
-            <form action="../sendmail.php" method="post">
+            <form  method="post">
                 <div class="hp">
                 <label>
                     <span><i class="fas fa-clock"></i>Horário de Reserva:</span><br>
@@ -99,6 +106,15 @@ $scheduling = $schedulingController->getSchedulingByClassroom($id_class);
                     <span><i class="fas fa-clock"></i>Horário de Término:</span><br>
                     <input type="datetime-local" name="end_time" required>
                 </label><br><br>
+                <label>
+                    <span><i class="fas fa-clock"></i>Turma:</span><br>
+                    <select name="school_year" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <?php foreach ($groups as $group): ?>
+                            <option value="<?php echo $group['year_school'] ?>"><?php echo $group['year_school'] ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </label><br><br>    
                 </div>
                 <br><br>
                 <div class="bp">
