@@ -51,7 +51,7 @@ include_once '../Config/config.php';
 
 
 <div class="r-button">
-<button>Login</button>
+<button>Cadastrar-se</button>
 <br>
 <br>
 <a href="sign-in.php">Voltar ao Login</a>
