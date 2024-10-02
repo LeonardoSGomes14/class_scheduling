@@ -27,8 +27,8 @@ include_once 'C:\xampp\htdocs\class_scheduling\App\Controller\GroupsController.p
                 <tbody>
                     <td><?php echo $group['teacher'] ?></td>
                     <td><?php echo $group['year_school'] ?></td>
-                    <td>Atualizar</td>
-                    <td>Deletar</td>
+                    <td><a href="">Atualizar</a></td>
+                    <td><a href="">Deletar</a></td>
                 </tbody>
                 <?php endforeach ?>
             </table>

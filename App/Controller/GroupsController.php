@@ -27,6 +27,10 @@ class GroupController {
         $this->groupmodel->updateGroup($id_group, $teacher, $year_school);
     }
 
+    public function selectGroups($teacher) {
+        return $this->groupmodel->selectGroups($teacher);
+    }
+
     public function deleteGroup($id_group) {
         $this->groupmodel->deleteGroup($id_group);
     }

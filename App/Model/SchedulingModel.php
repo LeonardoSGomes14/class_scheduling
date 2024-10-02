@@ -8,13 +8,13 @@ class SchedulingModel
         $this->pdo = $pdo;
     }
 
-    public function createScheduling($id_class, $scheduling_time, $end_time)
+    public function createScheduling($id_class, $scheduling_time, $end_time, $school_year)
     {
         $id_teacher = $_SESSION['userID'];
         $teacher_name = $_SESSION['userName'];
-        $sql = "INSERT INTO scheduling (id_teacher, teacher_name, id_class, scheduling_time, end_time) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO scheduling (id_teacher, teacher_name, id_class, scheduling_time, end_time, school_year) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$id_teacher, $teacher_name, $id_class, $scheduling_time, $end_time]);
+        $stmt->execute([$id_teacher, $teacher_name, $id_class, $scheduling_time, $end_time, $school_year]);
         return $stmt->rowCount();
     }
 
