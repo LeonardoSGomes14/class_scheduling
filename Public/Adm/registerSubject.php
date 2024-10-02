@@ -17,6 +17,7 @@ if (isset($_POST['name'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Resources/Css/ADM/sing-up.css">
     <title>Registro de Matérias</title>
 </head>
 <body>
@@ -30,6 +31,7 @@ if (isset($_POST['name'])) {
     </header>
     <main>
         <section>
+            <a href="index.php" class="back-link">Voltar</a>
             <h2>Registro de Matérias</h2>
             <form method="post">
                 <label>

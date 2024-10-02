@@ -9,14 +9,18 @@ $groupController = new GroupController($pdo);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../Resources/Css/ADM/Groups.css">
+    <title>Lista de Grupos</title>
 </head>
 <body>
     <main>
-        <a href="index.php">Voltar</a>
-        <?php
-            $groupController ->showGroupsList();
-        ?>
+        <section class="form-section">
+            <a href="index.php" class="back-link">Voltar</a>
+            <h2>Lista de Grupos</h2>
+            <?php
+                $groupController->showGroupsList();
+            ?>
+        </section>
     </main>
 </body>
 </html>

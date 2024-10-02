@@ -27,26 +27,22 @@ $subjectss = $subjectsController->listSubjects();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <style>
-        .hidden-input {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../../Resources/Css/ADM/sing-up.css">
 </head>
 <body>
     <header>
         <?php 
             if(isset($_SESSION['message'])) {
-                echo '<p>' . $_SESSION['message'] . '</p>';
+                echo '<p class="message">' . $_SESSION['message'] . '</p>';
                 unset($_SESSION['message']);
             }
         ?>
     </header>
     <main>
         <section>
-            <a href="index.php">Voltar</a>
+            <a href="index.php" class="back-link">Voltar</a>
             <h2>Sign Up</h2>
-            <form method="post">
+            <form method="post" class="signup-form">
                 <label>
                     <span>Nome:</span><br>
                     <input type="text" name="name" required>

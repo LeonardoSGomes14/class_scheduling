@@ -6,15 +6,13 @@ include_once '../../App/Controller/UsersController.php';
 
 $usersController = new UserController($pdo);
 $groupController = new GroupController($pdo);
-if (isset($_POST['teacher']) &&
-    isset($_POST['year_school'])
-    ) {
-        $groupController->createGroup($_POST['teacher'], $_POST['year_school']);
+if (isset($_POST['teacher']) && isset($_POST['year_school'])) {
+    $groupController->createGroup($_POST['teacher'], $_POST['year_school']);
 
-        $_SESSION['message'] = 'Grupo criado com Sucesso!';
-        header('Location: registerGroups.php');
-        exit();
-    }
+    $_SESSION['message'] = 'Grupo criado com Sucesso!';
+    header('Location: registerGroups.php');
+    exit();
+}
 
 $types = $usersController->selectTeacher();
 ?>
@@ -23,33 +21,35 @@ $types = $usersController->selectTeacher();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Resources/Css/ADM/sing-up.css">
     <title>Cadastrar Grupos</title>
 </head>
 <body>
     <header>
         <?php 
-            if(isset($_SESSION['message'])) {
-                echo '<p>' . $_SESSION['message'] . '</p>';
+            if (isset($_SESSION['message'])) {
+                echo '<div class="message success">' . $_SESSION['message'] . '</div>';
                 unset($_SESSION['message']);
             }
         ?>
     </header>
     <main>
-        <section>
-            <a href="index.php">Voltar</a>
+        <section class="form-section">
+            <a href="index.php" class="back-link">Voltar</a>
             <h2>Criar Grupos</h2>
-            <form method="post">
+            <form method="post" class="form-group">
                 <label>
-                    <span>Professor:</span><br>
+                    <span>Professor:</span>
                     <select name="teacher" required>
                         <option value="" disabled selected>Selecione...</option>
                         <?php foreach ($types as $type): ?>
                             <option value="<?php echo $type['name'] ?>"><?php echo $type['name'] ?></option>
                         <?php endforeach ?>
                     </select>
-                </label><br>
+                </label>
+                
                 <label>
-                    <span>Turma:</span><br>
+                    <span>Turma:</span>
                     <select name="year_school" required>
                         <option value="" disabled selected>Selecione...</option>
                         <optgroup label="Ensino Fundamental">
@@ -64,8 +64,9 @@ $types = $usersController->selectTeacher();
                             <option value="3 Ano do Ensino Médio">3º Ano</option>
                         </optgroup>
                     </select>
-                </label><br><br>
-                <button type="submit">Finalizar</button>
+                </label>
+                
+                <button type="submit" class="btn-submit">Finalizar</button>
             </form>
         </section>
     </main>
