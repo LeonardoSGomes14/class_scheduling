@@ -65,7 +65,7 @@ $subjectss = $subjectsController->listSubjects();
                 <label id="labelSchoolYear" class="hidden-input">
                     <span>Ano Escolar:</span><br>
                     <select name="school_year">
-                        <option value="" disabled selected>Selecione...</option>
+                        <option value="">Selecione...</option>
                         <optgroup label="Ensino Fundamental">
                             <option value="9 Ano do Ensino Fundamental">9º Ano</option>
                             <option value="8 Ano do Ensino Fundamental">8º Ano</option>
@@ -81,8 +81,8 @@ $subjectss = $subjectsController->listSubjects();
                 </label><br><br>
                 <label id="labelSubject" class="hidden-input">
                     <span>Matéria:</span><br>
-                    <select name="subject" required>
-                        <option value="" disabled selected>Selecione...</option>
+                    <select name="subject">
+                        <option value="">Selecione...</option>
                     <?php foreach($subjectss as $subject): ?>
                         <option value="<?php echo $subject['name'] ?>"><?php echo $subject['name'] ?></option>
                     <?php endforeach; ?>
