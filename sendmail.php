@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
-
-include 'Config\config.php';
+    
+include 'Config/config.php';
 
 $school_year = $_POST['school_year'];
 
