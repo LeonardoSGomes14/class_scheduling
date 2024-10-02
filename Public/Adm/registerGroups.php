@@ -6,7 +6,9 @@ include_once '../../App/Controller/UsersController.php';
 
 $usersController = new UserController($pdo);
 $groupController = new GroupController($pdo);
-if (isset($_POST['teacher']) && isset($_POST['year_school'])) {
+if (isset($_POST['teacher']) && 
+    isset($_POST['year_school'])) 
+    {
     $groupController->createGroup($_POST['teacher'], $_POST['year_school']);
 
     $_SESSION['message'] = 'Grupo criado com Sucesso!';
