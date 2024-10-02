@@ -15,6 +15,10 @@ class UserController
         $this->usermodel->createUser($name, $email, $password, $user_type, $school_year, $subject);
     }
 
+    public function selectTeacher() {
+        return $types = $this->usermodel->selectTeacher();
+    }    
+
     public function listUsers()
     {
         return $this->usermodel->listUsers();

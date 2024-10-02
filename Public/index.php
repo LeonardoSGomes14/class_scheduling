@@ -21,6 +21,7 @@ $classrooms = $classroomController->listClassrooms();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../Resources/Images/sesi-logo.png" type="image/x-icon">
     <title>Página Inicial</title>
 </head>
 <body>
@@ -62,8 +63,11 @@ $classrooms = $classroomController->listClassrooms();
                 </div>
                 <div class="section-DC">
                     <?php 
-                        $classrooms = array_slice($classrooms, -3);
-                        foreach ($classrooms as $classroom):
+                    $availableClassrooms = array_filter($classrooms, function($classrooms) {
+                        return $classrooms['conditionstatus'] == 0;
+                    });
+                        $availableClassrooms = array_slice($availableClassrooms, -3);
+                        foreach ($availableClassrooms as $classroom):
                     ?>
                     <div class="container-DC">
                         <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
@@ -86,25 +90,19 @@ $classrooms = $classroomController->listClassrooms();
                     <p>SALAS AGENDADAS</p>
                 </div>
                 <div class="section-SC">
-                    <?php 
-                        // Pega as 3 últimas salas de aula
-                        //$classrooms = array_slice($classrooms, -3);
+                <?php 
+                    $disableClassrooms = array_filter($classrooms, function($classrooms) {
+                        return $classrooms['conditionstatus'] == 1;
+                    });
+                        $disableClassrooms = array_slice($disableClassrooms, -3);
+                        foreach ($disableClassrooms as $classroom):
                     ?>
                     <div class="container-SC">
-                        <a href="#">
+                        <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
                             <img src="../Resources/Images/img-1.png" alt="Imagem">
                         </a>
                     </div>
-                    <div class="container-SC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
-                        </a>
-                    </div>
-                    <div class="container-SC">
-                        <a href="#">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
-                        </a>
-                    </div>
+                    <?php endforeach ?>
                 </div>
                 
                 <div class="view-more-SC">

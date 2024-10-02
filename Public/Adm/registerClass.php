@@ -44,7 +44,7 @@ if (isset($_POST['identification']) &&
                 <label>
                     <span>Status:</span><br>
                     <select name="contitionstatus">
-                        <option value="">Selecione...</option>
+                        <option value="" disabled selected>Selecione...</option>
                         <option value="0">Dispoível</option>
                         <option value="1">Ocupado</option>
                     </select>

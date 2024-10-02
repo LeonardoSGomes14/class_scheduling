@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Set-2024 às 15:35
+-- Tempo de geração: 25-Set-2024 às 20:10
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -64,6 +64,60 @@ INSERT INTO `classrooms` (`id_class`, `identification`, `conditionstatus`, `equi
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `emails`
+--
+
+CREATE TABLE `emails` (
+  `id_mail` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `content` text NOT NULL,
+  `subject_name` varchar(150) NOT NULL,
+  `school_year` varchar(50) NOT NULL,
+  `teacher_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `groups`
+--
+
+CREATE TABLE `groups` (
+  `id_group` int(11) NOT NULL,
+  `teacher` varchar(255) NOT NULL,
+  `year_school` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Extraindo dados da tabela `groups`
+--
+
+INSERT INTO `groups` (`id_group`, `teacher`, `year_school`) VALUES
+(1, 'Rodrigo Humberto Figuereto', '9 Ano do Ensino Fundamental'),
+(2, 'Frederico Alberto da Silva', '9 Ano do Ensino Fundamental'),
+(3, 'Bianca de Souza', '9 Ano do Ensino Fundamental'),
+(4, 'Helena Roberta de Andrade', '8 Ano do Ensino Fundamental'),
+(5, 'Luan Castilho', '8 Ano do Ensino Fundamental'),
+(6, 'Beatriz Andrade', '8 Ano do Ensino Fundamental'),
+(7, 'Rodrigo Humberto Figuereto', '7 Ano do Ensino Fundamental'),
+(8, 'Rafael Moura', '7 Ano do Ensino Fundamental'),
+(9, 'Bianca de Souza', '7 Ano do Ensino Fundamental'),
+(10, 'Luan Castilho', '6 Ano do Ensino Fundamental'),
+(11, 'Frederico Alberto da Silva', '6 Ano do Ensino Fundamental'),
+(12, 'Rafael Moura', '6 Ano do Ensino Fundamental'),
+(13, 'Helena Roberta de Andrade', '1 Ano do Ensino Médio'),
+(14, 'Beatriz Andrade', '1 Ano do Ensino Médio'),
+(15, 'Frederico Alberto da Silva', '1 Ano do Ensino Médio'),
+(16, 'Bianca de Souza', '2 Ano do Ensino Médio'),
+(17, 'Rodrigo Humberto Figuereto', '2 Ano do Ensino Médio'),
+(18, 'Rafael Moura', '2 Ano do Ensino Médio'),
+(19, 'Bianca de Souza', '3 Ano do Ensino Médio'),
+(20, 'Helena Roberta de Andrade', '3 Ano do Ensino Médio'),
+(21, 'Rodrigo Humberto Figuereto', '3 Ano do Ensino Médio');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `scheduling`
 --
 
@@ -73,7 +127,8 @@ CREATE TABLE `scheduling` (
   `teacher_name` varchar(255) NOT NULL,
   `id_class` int(11) NOT NULL,
   `scheduling_time` datetime NOT NULL,
-  `end_time` datetime NOT NULL
+  `end_time` datetime NOT NULL,
+  `school_year` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -124,6 +179,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_users`, `name`, `email`, `password`, `user_type`, `school_year`, `subject`) VALUES
+(1, 'Administrador', 'administrativo@gmail.com', '123', 3, '', ''),
 (6, 'Frederico Alberto da Silva', 'fred@gmail.com', '1234567', 1, '', 'Biologia'),
 (7, 'Rodrigo Humberto Figuereto', 'fig@gmail.com', '1234567', 1, '', 'Química'),
 (8, 'Bianca de Souza', 'bia@gmail.com', '1234567', 1, '', 'Física'),
@@ -145,8 +201,7 @@ INSERT INTO `users` (`id_users`, `name`, `email`, `password`, `user_type`, `scho
 (24, 'Luísa Martins', 'luisa@gmail.com', '12345', 2, '2 Ano do Ensino Médio', ''),
 (25, 'Luísa Martins', 'luisa@gmail.com', '12345', 2, '2 Ano do Ensino Médio', ''),
 (26, 'Luísa Martins', 'luisa@gmail.com', '12345', 2, '2 Ano do Ensino Médio', ''),
-(27, 'Luísa Martins', 'luisa@gmail.com', '12345', 2, '2 Ano do Ensino Médio', ''),
-(29, 'Administrador', 'administrativo@gmail.com', '123', 3, '', '');
+(27, 'Luísa Martins', 'luisa@gmail.com', '12345', 2, '2 Ano do Ensino Médio', '');
 
 --
 -- Índices para tabelas despejadas
@@ -157,6 +212,18 @@ INSERT INTO `users` (`id_users`, `name`, `email`, `password`, `user_type`, `scho
 --
 ALTER TABLE `classrooms`
   ADD PRIMARY KEY (`id_class`);
+
+--
+-- Índices para tabela `emails`
+--
+ALTER TABLE `emails`
+  ADD PRIMARY KEY (`id_mail`);
+
+--
+-- Índices para tabela `groups`
+--
+ALTER TABLE `groups`
+  ADD PRIMARY KEY (`id_group`);
 
 --
 -- Índices para tabela `scheduling`
@@ -189,10 +256,22 @@ ALTER TABLE `classrooms`
   MODIFY `id_class` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT de tabela `emails`
+--
+ALTER TABLE `emails`
+  MODIFY `id_mail` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `groups`
+--
+ALTER TABLE `groups`
+  MODIFY `id_group` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
 -- AUTO_INCREMENT de tabela `scheduling`
 --
 ALTER TABLE `scheduling`
-  MODIFY `id_scheduling` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id_scheduling` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT de tabela `subjects`

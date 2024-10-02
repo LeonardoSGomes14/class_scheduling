@@ -16,6 +16,14 @@ class UserModel
         return $stmt->rowCount();
     }
 
+    public function selectTeacher() {
+        $stmt = $this->pdo->prepare("SELECT name FROM users WHERE user_type = :user_type");
+        $stmt->bindValue(':user_type', 1, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+
     public function listUsers()
     {
         $sql = "SELECT * FROM users";
