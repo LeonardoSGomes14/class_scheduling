@@ -36,8 +36,8 @@ include_once '../Config/config.php';
 </div>
 <h1>Faça login para verificar as salas disponíveis:</h1>
 <div class="form-input">
-<label id="direction"><i class="fa fa-user"></i>Usuário</label>
-<input type="text" name="email" placeholder="Usuário">
+<label id="direction"><i class="fa fa-user"></i>Email</label>
+<input type="text" name="email" placeholder="Email">
 
 
 <label id="direction"><i class="fa fa-lock"></i>Senha</label>
@@ -46,10 +46,9 @@ include_once '../Config/config.php';
 
 
 <div class="r-button">
+  <br>
+  <br>
 <button>Login</button>
-<br>
-<br>
-<a href="register.php">Cadastre-se</a>
 </div>
 </form>
     <script>

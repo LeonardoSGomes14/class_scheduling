@@ -15,7 +15,7 @@
             <a href="users_list.php">Ver Todos os Usuários</a><br><br>
 
             <a href="registerClass.php">Adicionar Classe</a><br>
-            <a href="all_classrooms_list.php">Ver Todas as Classes</a><br><br>
+            <a href="../all_classrooms_list.php">Ver Todas as Classes</a><br><br>
 
             <a href="registerGroups.php">Adicionar Grupo</a><br>
             <a href="Groups.php">Ver Todos os Grupos</a><br><br>
