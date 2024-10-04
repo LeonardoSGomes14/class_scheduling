@@ -51,6 +51,7 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Resources/Css/ADM/sing-up.css">
     <title>Update user</title>
     <style>
         .toggle-btn {

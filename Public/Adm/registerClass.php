@@ -21,43 +21,48 @@ if (isset($_POST['identification']) &&
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Resources/Css/ADM/sing-up.css">
     <title>Registro de Classes</title>
 </head>
 <body>
     <header>
         <?php 
-            if(isset($_SESSION['message'])) {
-                echo '<p>' . $_SESSION['message'] . '</p>';
+            if (isset($_SESSION['message'])) {
+                echo '<div class="message success">' . $_SESSION['message'] . '</div>';
                 unset($_SESSION['message']);
             }
         ?>
     </header>
     <main>
-        <section>
-            <a href="index.php">Voltar</a>
+        <section class="form-section">
+            <a href="index.php" class="back-link">Voltar</a>
             <h2>Registro de Classe</h2>
-            <form method="post">
+            <form method="post" class="form-group">
                 <label>
-                    <span>Identificação:</span><br>
+                    <span>Identificação:</span>
                     <input type="text" name="identification" required>
-                </label><br><br>
+                </label>
+                
                 <label>
-                    <span>Status:</span><br>
-                    <select name="contitionstatus">
-                        <option value="">Selecione...</option>
-                        <option value="0">Dispoível</option>
+                    <span>Status:</span>
+                    <select name="contitionstatus" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="0">Disponível</option>
                         <option value="1">Ocupado</option>
                     </select>
-                </label><br><br>
+                </label>
+                
                 <label>
-                    <span>Equipamentos:</span><br>
+                    <span>Equipamentos:</span>
                     <textarea name="equipaments" required></textarea>
-                </label><br><br>
+                </label>
+                
                 <label>
-                    <span>Observação:</span><br>
+                    <span>Observação:</span>
                     <textarea name="description"></textarea>
-                </label><br><br>
-                <button type="submit">Finalizar</button>
+                </label>
+                
+                <button type="submit" class="btn-submit">Finalizar</button>
             </form>
         </section>
     </main>

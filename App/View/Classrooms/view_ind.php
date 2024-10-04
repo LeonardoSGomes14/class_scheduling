@@ -51,7 +51,7 @@ include_once 'C:/xampp/htdocs/class_scheduling/Config/config.php';
         </nav>
     </header>
         <div class="ttl-DC">
-            <h2>SALAS DISPONÍVEIS</h2>
+            <h2>SALAS AGENDADAS</h2>
         </div>
     </div>
     
