@@ -27,8 +27,8 @@ include_once 'C:\xampp\htdocs\class_scheduling\App\Controller\GroupsController.p
                     <tr>
                         <td><?php echo htmlspecialchars($group['teacher']); ?></td>
                         <td><?php echo htmlspecialchars($group['year_school']); ?></td>
-                        <td><a class="btn-action" href="../../App/Providers/atualizarGroups.php?id=<?php echo $group['id_group'] ?>">Atualizar</a></td>
-                        <td><a class="btn-delete" href="#" onclick="confirmDelete(<?php echo $group['id_group']; ?>)">Deletar</a></td>
+                        <td><a class="btn-action" href="../../App/Providers/atualizarGroups.php?id=<?php echo $group['id_group'] ?>"><img src="../../Resources/Images/icons8-17372-0-73111-repetição-direita-43-setas-64.png" alt="Atualizar"></a></td>
+                        <td><a class="btn-delete" href="#" onclick="confirmDelete(<?php echo $group['id_group']; ?>)"><img src="../../Resources/Images/icons8-remover-30.png" alt="Deletar"></a></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

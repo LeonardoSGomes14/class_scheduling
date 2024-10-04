@@ -1,5 +1,6 @@
 /* sing-up.css */
 
+/* Estilos existentes */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -37,7 +38,9 @@ main {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 90%; /* Alterado para 90% */
+    max-width: 400px; /* Tamanho máximo para a largura */
+    margin: 0 auto; /* Centraliza horizontalmente */
 }
 
 .form-section h2 {
@@ -97,4 +100,27 @@ main {
 
 .back-link:hover {
     text-decoration: underline;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    main {
+        padding: 20px; /* Adiciona um padding em telas menores */
+        height: auto; /* Ajusta a altura para que o conteúdo se ajuste */
+    }
+
+    .form-section {
+        width: 100%; /* A largura se torna 100% em telas pequenas */
+        padding: 15px; /* Reduz o padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .form-section {
+        padding: 10px; /* Reduz ainda mais o padding em telas muito pequenas */
+    }
+
+    .form-group .btn-submit {
+        padding: 8px; /* Reduz o padding do botão */
+    }
 }

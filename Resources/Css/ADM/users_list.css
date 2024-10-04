@@ -1,3 +1,4 @@
+/* Estilos globais */
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -26,6 +27,8 @@ section {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 h2 {
@@ -34,21 +37,51 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* Tabela de usuários */
 .users-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    font-size: 1rem;
+    table-layout: fixed; /* Define a largura fixa para as colunas */
 }
 
 .users-table th, .users-table td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
+    word-wrap: break-word; /* Quebra palavras longas para evitar estouro */
 }
 
 .users-table th {
     background-color: #0D8473;
     color: white;
+}
+
+/* Largura das colunas */
+.users-table th:nth-child(1),
+.users-table td:nth-child(1) {
+    width: 20%; /* Nome */
+}
+
+.users-table th:nth-child(2),
+.users-table td:nth-child(2) {
+    width: 30%; /* Email */
+}
+
+.users-table th:nth-child(3),
+.users-table td:nth-child(3) {
+    width: 15%; /* Tipo de Usuário */
+}
+
+.users-table th:nth-child(4),
+.users-table td:nth-child(4) {
+    width: 15%; /* Ano Escolar */
+}
+
+.users-table th:nth-child(5),
+.users-table td:nth-child(5) {
+    width: 20%; /* Matéria */
 }
 
 .users-table tr:nth-child(even) {
@@ -69,4 +102,76 @@ h2 {
 
 .back-link:hover {
     text-decoration: underline;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .users-table th, .users-table td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .back-link {
+        font-size: 1em;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .users-table th:nth-child(1),
+    .users-table td:nth-child(1),
+    .users-table th:nth-child(2),
+    .users-table td:nth-child(2) {
+        width: 40%; /* Ajusta o nome e email em telas menores */
+    }
+
+    .users-table th:nth-child(3),
+    .users-table td:nth-child(3),
+    .users-table th:nth-child(4),
+    .users-table td:nth-child(4),
+    .users-table th:nth-child(5),
+    .users-table td:nth-child(5) {
+        width: 20%; /* Distribui as outras colunas */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    .users-table th, .users-table td {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+
+    .back-link {
+        font-size: 0.9em;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    /* Ajuste das colunas para dispositivos muito pequenos */
+    .users-table th, .users-table td {
+        width: auto; /* Remove larguras fixas para se ajustar melhor */
+    }
 }

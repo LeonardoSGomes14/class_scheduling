@@ -1,4 +1,4 @@
-/* Estilos gerais para a página de lista de salas de aula */
+/* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -9,8 +9,8 @@ body {
 main {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Alinhar a partir do topo */
-    height: 100vh;
+    align-items: flex-start;
+    min-height: 100vh;
 }
 
 .form-section {
@@ -20,7 +20,7 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 1200px;
-    margin-top: 20px; /* Certificar que a seção tem um espaço do topo */
+    margin-top: 20px;
 }
 
 h2 {
@@ -55,10 +55,20 @@ h2 {
 .styled-table thead tr {
     background-color: #0D8473;
     color: #ffffff;
+    text-align: center;
 }
 
 .styled-table th, .styled-table td {
-    padding: 12px 15px;
+    padding: 15px; /* Aumentei o padding para espaçamento adequado */
+    border-bottom: 1px solid #dddddd;
+    text-align: center; /* Alinhamento centralizado para melhor visualização */
+}
+
+.styled-table th {
+    font-weight: bold;
+}
+
+.styled-table tbody tr {
     border-bottom: 1px solid #dddddd;
 }
 
@@ -68,6 +78,10 @@ h2 {
 
 .styled-table tbody tr:hover {
     background-color: #f1f1f1;
+}
+
+.styled-table tbody td {
+    padding: 12px;
 }
 
 /* Para os status da sala (condição) */
@@ -82,6 +96,8 @@ h2 {
 }
 
 /* Responsividade */
+
+/* Tablets em modo retrato e smartphones grandes (768px ou menos) */
 @media screen and (max-width: 768px) {
     .styled-table thead {
         display: none;
@@ -94,13 +110,12 @@ h2 {
 
     .styled-table tr {
         margin-bottom: 15px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        background-color: white;
     }
 
-    .styled-table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-    }
 
     .styled-table td::before {
         content: attr(data-label);
@@ -110,5 +125,108 @@ h2 {
         padding-left: 15px;
         font-weight: bold;
         text-align: left;
+        white-space: nowrap;
+    }
+
+    h2 {
+        text-align: center; /* Centraliza o título */
+        margin: 0; /* Remove margens */
+    }
+
+    .back-link {
+        display: block; /* Garante que o link ocupe a linha inteira */
+        text-align: center; /* Centraliza o link */
+        margin: 0; /* Remove margens */
+    }
+
+    .styled-table {
+        width: 100%;
+        text-align: center; /* Centraliza o texto nas células da tabela */
+    }
+
+    .styled-table th, .styled-table td {
+        text-align: center; /* Centraliza o texto nas células */
+    }
+
+}
+
+/* Smartphones pequenos (600px ou menos) */
+@media screen and (max-width: 600px) {
+    .form-section {
+        padding: 15px;
+    }
+
+    .styled-table tr {
+        margin-bottom: 10px;
+    }
+
+    .styled-table td {
+        padding-left: 45%;
+    }
+
+    .styled-table td::before {
+        padding-left: 10px;
+        font-size: 0.9em;
+    }
+
+    .back-link {
+        font-size: 0.9em;
+    }
+
+    h2 {
+        font-size: 1.5em;
     }
 }
+
+/* Smartphones extra pequenos (480px ou menos) */
+@media screen and (max-width: 480px) {
+    .form-section {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .styled-table td {
+        padding-left: 40%;
+    }
+
+    .styled-table td::before {
+        font-size: 0.8em;
+    }
+
+    .back-link {
+        font-size: 0.85em;
+    }
+}
+
+/* Telas muito pequenas (360px ou menos) */
+@media screen and (max-width: 360px) {
+    .form-section {
+        padding: 5px;
+    }
+
+    h2 {
+        font-size: 1.1em;
+    }
+
+    .styled-table td {
+        padding-left: 35%;
+    }
+
+    .styled-table td::before {
+        font-size: 0.75em;
+    }
+
+    .back-link {
+        font-size: 0.75em;
+    }
+}
+
+/* Estilos gerais - ajuste na largura da tabela */
+.styled-table {
+    width: 100%;
+    max-width: 100%; /* Garante que a tabela não ultrapasse a tela */
+}
+
