@@ -8,7 +8,7 @@ include_once 'C:\xampp\htdocs\class_scheduling\App\Controller\GroupsController.p
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Resources/Css/ADM/sing-up.css">
-    <link rel="stylesheet" href="../../Resources/Css/styledelete.css">
+    <link rel="stylesheet" href="../../Resources/Css/ADM/styledelete.css">
     <title>Lista de Grupos</title>
 </head>
 <body>
@@ -27,8 +27,8 @@ include_once 'C:\xampp\htdocs\class_scheduling\App\Controller\GroupsController.p
                     <tr>
                         <td><?php echo htmlspecialchars($group['teacher']); ?></td>
                         <td><?php echo htmlspecialchars($group['year_school']); ?></td>
-                        <td><a href="../../App/Providers/atualizarGroups.php?id=<?php echo $group['id_group'] ?>">Atualizar</a></td>
-                        <td><a href="#" onclick="confirmDelete(<?php echo $group['id_group']; ?>)">Deletar</a></td>
+                        <td><a class="btn-action" href="../../App/Providers/atualizarGroups.php?id=<?php echo $group['id_group'] ?>">Atualizar</a></td>
+                        <td><a class="btn-delete" href="#" onclick="confirmDelete(<?php echo $group['id_group']; ?>)">Deletar</a></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

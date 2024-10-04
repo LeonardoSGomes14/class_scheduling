@@ -16,7 +16,7 @@
     width: 45%;
     text-align: center;
     font-family: "ABeeZee", sans-serif;
-    color: #5D72D0;
+    color: #0D8473;
    
 }
 
@@ -29,7 +29,7 @@
 }
 
 .confirm {
-    background-color: #5D72D0; /*cor do sim*/ 
+    background-color: #0D8473; /*cor do sim*/ 
     border-radius: 1px;
     border: none;
     color: #ffffff;
@@ -43,11 +43,11 @@
     background-color: #D7D7D7; /*cor do delete*/
     border-radius: 1px;
     border: none;
-    color: #5D72D0;
+    color: #0D8473;
     padding: 5px 20px;
     font-size: 16px;
     cursor: pointer;
-    border: 2px solid #4B68D1;
+    border: 2px solid #0b6b5d;
     margin: 0 0 1rem 0;
     
 }
@@ -57,7 +57,7 @@
 }
 
 .confirm:active {
-    background-color: #5D72D0 ; /*muda a cor do clique*/
+    background-color: #0D8473 ; /*muda a cor do clique*/
 }
 
 .close:hover {
@@ -65,5 +65,5 @@
 }
 
 .close:active {
-    background-color: #5D72D0 ; /*muda a cor do clique*/
+    background-color: #0D8473 ; /*muda a cor do clique*/
 }

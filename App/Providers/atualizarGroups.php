@@ -46,7 +46,7 @@ $year_school = $appointment['year_school'];
     <meta charset="UTF-8">
     <meta teacher="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Competidor</title>
-    <link rel="stylesheet" href="../../Resources/Css/paginainicial.css">
+    <link rel="stylesheet" href="../../Resources/Css/ADM/atualizarGrupos.css">
 </head>
 <body>
     <header>
