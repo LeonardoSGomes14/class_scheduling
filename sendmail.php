@@ -26,13 +26,13 @@ if ($result->num_rows > 0) {
         $mail->isSMTP();
         $mail->Host = 'smtp.seuservidor.com';  // Endereço do servidor SMTP
         $mail->SMTPAuth = true;
-        $mail->Username = 'seuemail@seuservidor.com';  // Usuário do SMTP
+        $mail->Username = 'sesiinterclasse380@gmail.com';  // Usuário do SMTP
         $mail->Password = 'suasenha';           // Senha do SMTP
         $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         // Configurar remetente e destinatário
-        $mail->setFrom('seuemail@seuservidor.com', 'Sua Escola');
+        $mail->setFrom('sesiinterclasse380@gmail.com', 'Sua Escola');
         $mail->addAddress($email_student, $name_student); 
 
         // Conteúdo do email
