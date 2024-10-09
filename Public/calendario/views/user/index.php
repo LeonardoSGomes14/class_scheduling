@@ -4,3 +4,4 @@ include_once (DIRREQ. "/lib/html/header.php"); ?>
 <div class="calendarUser"></div>
     <?php include(DIRREQ."/lib/html/footer.php"); ?>
 
+    <button class="exit"><a href="..\..\..\index.php">Voltar</button></a>
