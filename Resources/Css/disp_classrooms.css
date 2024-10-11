@@ -44,6 +44,7 @@ body {
 .classroom-card {
     position: relative;
     overflow: hidden;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas para telas grandes */
     background-color: #e0e0e0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -73,7 +74,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,16 +93,68 @@ body {
     text-align: center;
 }
 
+.container-DC {
+    position: relative;
+    min-width: 27.5vw;
+    border-radius: 20px;
+    transform: .3s;
+}
+
+.overlay-DC {
+    position: relative;
+}
+
+.container-DC img {
+    width: 27.5vw;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.text-over-image {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: "SUSE", sans-serif;
+}
+
+
+.classroom-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    opacity: 1;
+    transition: none;
+}
+
 /* Media queries para diferentes tamanhos de tela */
 @media (max-width: 1200px) {
     .classroom-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 colunas para telas médias */
     }
+
+    .container-DC img {
+        width: 35vw;
+        aspect-ratio: 16 / 9;
+        border-radius: 10px;
+        transition: .3s;
+    }
 }
 
 @media (max-width: 768px) {
-    .classroom-grid {
-        grid-template-columns: 1fr; /* 1 coluna para telas pequenas */
+
+    .container-DC img {
+        width: 40vw;
+        aspect-ratio: 16 / 9;
+        border-radius: 10px;
+        transition: .3s;
     }
 }
 

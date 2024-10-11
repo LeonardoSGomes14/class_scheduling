@@ -61,16 +61,16 @@ include_once 'C:/xampp/htdocs/class_scheduling/Config/config.php';
                 foreach ($classrooms as $classroom) {
                     if ($classroom['conditionstatus'] == 1) {
                         ?>
-                        <div class="classroom-card">
-                            <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
-                                <div class="classroom-image-container">
-                                    <img src="../Resources/Images/img-1.png" alt="<?php echo $classroom['identification']; ?>">
-                                    <div class="classroom-overlay">
-                                        <p class="classroom-title"><?php echo $classroom['identification']; ?></p>
-                                    </div>
+                    <div class="container-DC">
+                        <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
+                            <div class="overlay-DC">
+                                <img src="../Resources/Images/img-1.png" alt="<?php echo $classroom['identification']; ?>">
+                                <div class="classroom-overlay">
+                                    <p class="text-over-image"><?php echo $classroom['identification']; ?></p>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
+                    </div>
                         <?php
                     }
                 }
