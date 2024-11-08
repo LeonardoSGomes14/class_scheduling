@@ -32,7 +32,7 @@ include_once '../Config/config.php';
         
 <form method="post" action="../App/Providers/configCargos.php">
 <div class="form-ico">
-<img src="../Resources/Images/logosesi.jpg">    
+<img src="../Resources/Images/logo.png">    
 </div>
 <h1>Faça login para verificar as salas disponíveis:</h1>
 <div class="form-input">
