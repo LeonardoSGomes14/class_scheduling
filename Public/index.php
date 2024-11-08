@@ -10,7 +10,7 @@ if (!isset($_SESSION['userID']) || $_SESSION['nao_autenticado'] === true) {
 
 $classroomController = new ClassroomController($pdo);
 $classrooms = $classroomController->listClassrooms();
-
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
