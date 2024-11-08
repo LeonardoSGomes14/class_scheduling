@@ -10,9 +10,11 @@ if (!isset($_SESSION['userID']) || $_SESSION['nao_autenticado'] === true) {
 
 $classroomController = new ClassroomController($pdo);
 $classrooms = $classroomController->listClassrooms();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> <!-- Impede zoom excessivo no mobile -->
@@ -24,8 +26,9 @@ $classrooms = $classroomController->listClassrooms();
     <link rel="shortcut icon" href="../Resources/Images/logo.png" type="image/x-icon">
     <title>Página Inicial</title>
 </head>
+
 <body>
-<header>
+    <header>
         <div class="menu-toggle" id="menu-toggle">
             <svg class="menu-open-button" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 72 72">
                 <path d="M56 48c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 48 54.798 48 56 48zM56 32c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 32 54.798 32 56 32zM56 16c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 16 54.798 16 56 16z"></path>
@@ -39,7 +42,7 @@ $classrooms = $classroomController->listClassrooms();
                 <div class="logout">
                     <a href="../App/Providers/logout.php">
                         <img class="logout-button" src="../Resources/Images/sign-out.png" alt="logout-icon">
-                    </a>    
+                    </a>
                 </div>
             </div>
             <div class="list-nav">
@@ -49,6 +52,17 @@ $classrooms = $classroomController->listClassrooms();
                             <img class="icons" src="../Resources/Images/calendar.png" alt="Calendario-icon">
                             <p class="nav-text">CALENDÁRIO</p>
                         </a>
+                        <br>
+                        <?php
+                        if (isset($_SESSION['userType']) && $_SESSION['userType'] == 3) {
+                            echo  "<a class='link-nav' href='Adm/index.php'>";
+                            echo  "<img class='icons' src='../Resources/Images/multiple-users-silhouette.png' alt='Administrador'>";
+                            echo  "<p class='nav-text'>ADMINISTRADOR</p>";
+                            echo  "</a>";
+                        } else {
+                            echo "";
+                        }
+                        ?>
                     </li>
                 </ul>
             </div>
@@ -62,24 +76,24 @@ $classrooms = $classroomController->listClassrooms();
                     <p>SALAS DISPONÍVEIS</p>
                 </div>
                 <div class="section-DC">
-                    <?php 
-                        $availableClassrooms = array_filter($classrooms, function($classrooms) {
-                            return $classrooms['conditionstatus'] == 0;
-                        });
-                        $availableClassrooms = array_slice($availableClassrooms, -3);
-                        foreach ($availableClassrooms as $classroom):
+                    <?php
+                    $availableClassrooms = array_filter($classrooms, function ($classrooms) {
+                        return $classrooms['conditionstatus'] == 0;
+                    });
+                    $availableClassrooms = array_slice($availableClassrooms, -3);
+                    foreach ($availableClassrooms as $classroom):
                     ?>
-                    <div class="container-DC">
-                        <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
-                            <div class="overlay-DC">
-                                <img src="../Resources/Images/img-1.png" alt="<?php echo $classroom['identification'] ?>">
-                                <p class="text-over-image"><?php echo $classroom['identification']; ?></p>
-                            </div>
-                        </a>
-                    </div>
+                        <div class="container-DC">
+                            <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
+                                <div class="overlay-DC">
+                                    <img src="../Resources/Images/img-1.png" alt="<?php echo $classroom['identification'] ?>">
+                                    <p class="text-over-image"><?php echo $classroom['identification']; ?></p>
+                                </div>
+                            </a>
+                        </div>
                     <?php endforeach ?>
                 </div>
-    
+
                 <div class="view-more-DC">
                     <a href="disp_classrooms_list.php">VER TODAS AS SALAS</a>
                 </div>
@@ -90,13 +104,13 @@ $classrooms = $classroomController->listClassrooms();
                     <p>SALAS AGENDADAS</p>
                 </div>
                 <div class="section-SC">
-                    <?php 
-                        $disableClassrooms = array_filter($classrooms, function($classrooms) {
-                            return $classrooms['conditionstatus'] == 1;
-                        });
-                            $disableClassrooms = array_slice($disableClassrooms, -3);
-                            foreach ($disableClassrooms as $classroom):
-                        ?>
+                    <?php
+                    $disableClassrooms = array_filter($classrooms, function ($classrooms) {
+                        return $classrooms['conditionstatus'] == 1;
+                    });
+                    $disableClassrooms = array_slice($disableClassrooms, -3);
+                    foreach ($disableClassrooms as $classroom):
+                    ?>
                         <div class="container-SC">
                         <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
                             <div class="overlay-DC">
@@ -108,7 +122,7 @@ $classrooms = $classroomController->listClassrooms();
                         </div>
                     <?php endforeach ?>
                 </div>
-                
+
                 <div class="view-more-SC">
                     <a href="ind_classrooms_list.php">VER TODAS AS SALAS</a>
                 </div>

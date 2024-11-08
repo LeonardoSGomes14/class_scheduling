@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-
+<a href="../../Public/index.php"><img height="50px" width="50px" src="../../Resources/Images/icons8-casa-150.png" alt="Inicio"></a>
     </header>
     <main>
         <section>

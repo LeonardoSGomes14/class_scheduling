@@ -41,7 +41,7 @@ include_once '../Config/config.php';
 
 
 <label id="direction"><i class="fa fa-lock"></i>Senha</label>
-<input type="text" name="password" placeholder="Senha">
+<input type="password" name="password" placeholder="Senha">
 
 
 
