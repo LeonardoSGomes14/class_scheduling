@@ -63,9 +63,9 @@ $classrooms = $classroomController->listClassrooms();
                 </div>
                 <div class="section-DC">
                     <?php 
-                    $availableClassrooms = array_filter($classrooms, function($classrooms) {
-                        return $classrooms['conditionstatus'] == 0;
-                    });
+                        $availableClassrooms = array_filter($classrooms, function($classrooms) {
+                            return $classrooms['conditionstatus'] == 0;
+                        });
                         $availableClassrooms = array_slice($availableClassrooms, -3);
                         foreach ($availableClassrooms as $classroom):
                     ?>
@@ -90,18 +90,21 @@ $classrooms = $classroomController->listClassrooms();
                     <p>SALAS AGENDADAS</p>
                 </div>
                 <div class="section-SC">
-                <?php 
-                    $disableClassrooms = array_filter($classrooms, function($classrooms) {
-                        return $classrooms['conditionstatus'] == 1;
-                    });
-                        $disableClassrooms = array_slice($disableClassrooms, -3);
-                        foreach ($disableClassrooms as $classroom):
-                    ?>
-                    <div class="container-SC">
+                    <?php 
+                        $disableClassrooms = array_filter($classrooms, function($classrooms) {
+                            return $classrooms['conditionstatus'] == 1;
+                        });
+                            $disableClassrooms = array_slice($disableClassrooms, -3);
+                            foreach ($disableClassrooms as $classroom):
+                        ?>
+                        <div class="container-SC">
                         <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
-                            <img src="../Resources/Images/img-1.png" alt="Imagem">
+                            <div class="overlay-DC">
+                                <img src="../Resources/Images/img-1.png" alt="<?php echo $classroom['identification'] ?>">
+                                <p class="text-over-image"><?php echo $classroom['identification']; ?></p>
+                            </div>
                         </a>
-                    </div>
+                        </div>
                     <?php endforeach ?>
                 </div>
                 
