@@ -102,6 +102,7 @@ $classrooms = $classroomController->listClassrooms();
                             <div class="overlay-DC">
                                 <img src="../Resources/Images/img-1.png" alt="<?php echo $classroom['identification'] ?>">
                                 <p class="text-over-image"><?php echo $classroom['identification']; ?></p>
+                                <?php //aqui ó ?>
                             </div>
                         </a>
                         </div>
