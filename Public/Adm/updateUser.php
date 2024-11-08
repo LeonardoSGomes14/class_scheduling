@@ -10,7 +10,7 @@ $usersController = new userController($pdo);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_users = $_POST['id_users'];
-    $name = $_POST['name'];
+    $name = $_POST['name']; 
     $email = $_POST['email'];
     $password = $_POST['password'];
     $user_type = $_POST['user_type'];

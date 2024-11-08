@@ -41,7 +41,7 @@ if ($result->num_rows > 0) {
         $mail->Body    = "Olá, $name_student, <br><br>Uma nova aula foi agendada para a sua turma.<br>Confira os detalhes no sistema da escola.<br><br>Atenciosamente,<br>Sua Escola";
         $mail->AltBody = "Olá, $name_student, Uma nova aula foi agendada para a sua turma. Confira os detalhes no sistema da escola. Atenciosamente, Sua Escola";
 
-        // Tente enviar o email
+        // Enviar o email
         if ($mail->send()) {
             echo "Email enviado para: $email_student<br>";
         } else {
