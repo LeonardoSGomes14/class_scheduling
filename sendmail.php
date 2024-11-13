@@ -5,20 +5,20 @@ require 'vendor/autoload.php';
 
 function enviarAvisoAula($pdo, $school_year, $scheduling_time, $end_time, $teacher_name) {
     // Consulta para obter os emails dos alunos na turma
-    $stmt = $pdo->prepare("SELECT email FROM students WHERE year_school = ?");
+    $stmt = $pdo->prepare("SELECT email FROM users WHERE school_year = ?");
     $stmt->execute([$school_year]);
     $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Configurações do PHPMailer
     $mail = new PHPMailer(true);
     $mail->isSMTP();
-    $mail->Host = 'smtp.seudominio.com';
+    $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'sesiinterclasse380@gmail.com';
-    $mail->Password = 'suasenha';
+    $mail->Username = 'smartclass.educ@gmail.com';
+    $mail->Password = 'smartclass123';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
-    $mail->setFrom('sesiinterclasse380@gmail.com', 'SmartClass');
+    $mail->setFrom('smartclass.educ@gmail.com', 'SmartClass');
 
     // Envio do email para cada aluno
     foreach ($alunos as $aluno) {
@@ -39,8 +39,3 @@ function enviarAvisoAula($pdo, $school_year, $scheduling_time, $end_time, $teach
     }
 }
 ?>
-
-
-
-
-sesiinterclasse380@gmail.com
