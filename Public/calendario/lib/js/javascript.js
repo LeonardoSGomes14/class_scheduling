@@ -41,7 +41,7 @@
                   }
               }
           },
-          events: '/class_scheduling/Public/calendario/controllers/ControllerEvents.php',
+          events: '/class_scheduling/Public/events.php',
           eventDrop: function(info) {
               resizeAndDrop(info);
           },
