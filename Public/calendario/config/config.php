@@ -8,7 +8,7 @@ define('DIRREQ' , "{$_SERVER['DOCUMENT_ROOT']}{$bar}{$dirInt}");
 
 #Banco de Dados
 define('HOST' , 'localhost');
-define('DB' , 'events');
+define('DB' , 'class_manager');
 define('USER' , 'root');
 define('PASS' , '');    
 

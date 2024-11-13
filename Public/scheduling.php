@@ -81,7 +81,7 @@ $groups = $groupController->selectGroups($teacher);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sala Disponível </title>
-    <link rel="shortcut icon" href="../Resources/Images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../Resources/Images/logo.jpeg" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
@@ -144,7 +144,11 @@ $groups = $groupController->selectGroups($teacher);
 
 
             <div class="id-class">
+                <?php if ($classrooms['conditionstatus'] == 0): ?>
                 <h1>Sala Disponível</h1>
+                <?php else: ?>
+                    <h1>Sala Reservada</h1>
+                    <?php endif ?>
                 <div class="img-sc">
                     <img src="../Resources/Images/img-1.png">
                     <h1 id="id">
