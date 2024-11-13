@@ -11,7 +11,9 @@ try {
         echo "<tr>";
         echo "<td>" . htmlspecialchars($user['name']) . "</td>";
         echo "<td>" . htmlspecialchars($user['email']) . "</td>";
-        echo "<td>" . htmlspecialchars($user['user_type']) . "</td>";
+        echo "<td>" . htmlspecialchars($user['user_type'] == 3 ? 'Administrador' : 
+        ($user['user_type'] == 2 ? 'Aluno' : 
+        ($user['user_type'] == 1 ? 'Professor' : ''))) . "</td>";
         echo "<td>" . htmlspecialchars($user['school_year']) . "</td>";
         echo "<td>" . htmlspecialchars($user['subject']) . "</td>";
         echo "</tr>";
