@@ -1,57 +1,41 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
-    
-include 'Config/config.php';
 
-$school_year = $_POST['school_year'];
+function enviarAvisoAula($pdo, $school_year, $scheduling_time, $end_time, $teacher_name) {
+    // Consulta para obter os emails dos alunos na turma
+    $stmt = $pdo->prepare("SELECT email FROM users WHERE school_year = ?");
+    $stmt->execute([$school_year]);
+    $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    // Configurações do PHPMailer
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'smartclassco.educ@gmail.com';
+    $mail->Password = 'zjmbaevfcghuwcft';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
+    $mail->setFrom('smartclassco.educ@gmail.com', 'SmartClass');
 
-$sql = "SELECT name, email FROM users WHERE school_year = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $school_year);
-$stmt->execute();
-$result = $stmt->get_result();
+    // Envio do email para cada aluno
+    foreach ($alunos as $aluno) {
+        try {
+            $mail->addAddress($aluno['email']);
+            $mail->isHTML(true);
+            $mail->Subject = 'Nova aula agendada!';
+            $mail->Body = "<p>Olá!</p><p>Uma nova aula foi agendada para a sua turma:</p>
+                           <p><strong>Professor:</strong> $teacher_name</p>
+                           <p><strong>Início:</strong> $scheduling_time</p>
+                           <p><strong>Término:</strong> $end_time</p>";
 
-
-if ($result->num_rows > 0) {
-
-    while ($row = $result->fetch_assoc()) {
-        $name_student = $row['name'];
-        $email_student = $row['email'];
-
-        // Configurar o PHPMailer
-        $mail = new PHPMailer\PHPMailer\PHPMailer();
-
-        // Habilitar o SMTP
-        $mail->isSMTP();
-        $mail->Host = 'smtp.seuservidor.com';  // Endereço do servidor SMTP
-        $mail->SMTPAuth = true;
-        $mail->Username = 'sesiinterclasse380@gmail.com';  // Usuário do SMTP
-        $mail->Password = 'suasenha';           // Senha do SMTP
-        $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
-
-        // Configurar remetente e destinatário
-        $mail->setFrom('sesiinterclasse380@gmail.com', 'Sua Escola');
-        $mail->addAddress($email_student, $name_student); 
-
-        // Conteúdo do email
-        $mail->isHTML(true);
-        $mail->Subject = 'Nova Aula Agendada!';
-        $mail->Body    = "Olá, $name_student, <br><br>Uma nova aula foi agendada para a sua turma.<br>Confira os detalhes no sistema da escola.<br><br>Atenciosamente,<br>Sua Escola";
-        $mail->AltBody = "Olá, $name_student, Uma nova aula foi agendada para a sua turma. Confira os detalhes no sistema da escola. Atenciosamente, Sua Escola";
-
-        // Enviar o email
-        if ($mail->send()) {
-            echo "Email enviado para: $email_student<br>";
-        } else {
-            echo "Erro ao enviar email para: $email_student. Erro: " . $mail->ErrorInfo . "<br>";
+            $mail->send();
+            $mail->clearAddresses();
+        } catch (Exception $e) {
+            echo "Erro ao enviar email: {$mail->ErrorInfo}";
         }
     }
-} else {
-    echo "Nenhum estudante encontrado para a turma.";
 }
-
-
-$stmt->close();
-$conn->close();
+?>

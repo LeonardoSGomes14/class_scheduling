@@ -11,9 +11,16 @@ class SchedulingController
     }
 
     public function createScheduling($id_class, $scheduling_time, $end_time, $school_year)
-    {
-        $this->schedulingmodel->createScheduling($id_class, $scheduling_time, $end_time, $school_year);
-    }
+{
+    // Cria o agendamento
+    $this->schedulingmodel->createScheduling($id_class, $scheduling_time, $end_time, $school_year);
+    
+    // Chama a função de envio de email
+    $teacher_name = $_SESSION['userName'];
+    require_once '../sendmail.php';
+    enviarAvisoAula($this->schedulingmodel->getPdo(), $school_year, $scheduling_time, $end_time, $teacher_name);
+}
+
 
     public function listSchedulings()
     {
@@ -34,3 +41,4 @@ class SchedulingController
         include 'View\Classrooms\view.php'; // Inclua a view
     }
 }
+
