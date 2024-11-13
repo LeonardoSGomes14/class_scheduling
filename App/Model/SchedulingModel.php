@@ -2,10 +2,14 @@
 class SchedulingModel
 {
     private $pdo;
-
+    
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
+    }
+    public function getPdo()
+    {
+        return $this->pdo;
     }
 
     public function createScheduling($id_class, $scheduling_time, $end_time, $school_year)
