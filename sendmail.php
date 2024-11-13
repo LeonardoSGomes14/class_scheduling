@@ -1,4 +1,3 @@
-
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -6,7 +5,7 @@ require 'vendor/autoload.php';
 
 function enviarAvisoAula($pdo, $school_year, $scheduling_time, $end_time, $teacher_name) {
     // Consulta para obter os emails dos alunos na turma
-    $stmt = $pdo->prepare("SELECT email FROM users WHERE school_year = ?");
+    $stmt = $pdo->prepare("SELECT email FROM students WHERE year_school = ?");
     $stmt->execute([$school_year]);
     $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -40,3 +39,8 @@ function enviarAvisoAula($pdo, $school_year, $scheduling_time, $end_time, $teach
     }
 }
 ?>
+
+
+
+
+sesiinterclasse380@gmail.com
