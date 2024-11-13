@@ -10,7 +10,7 @@ if (!isset($_SESSION['userID']) || $_SESSION['nao_autenticado'] === true) {
 
 $classroomController = new ClassroomController($pdo);
 $classrooms = $classroomController->listClassrooms();
-    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +23,7 @@ $classrooms = $classroomController->listClassrooms();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Resources/Css/footer.css">
     <link rel="shortcut icon" href="../Resources/Images/logo.png" type="image/x-icon">
     <title>Página Inicial</title>
 </head>
@@ -112,13 +113,14 @@ $classrooms = $classroomController->listClassrooms();
                     foreach ($disableClassrooms as $classroom):
                     ?>
                         <div class="container-SC">
-                        <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
-                            <div class="overlay-DC">
-                                <img src="../Resources/Images/img-1.png" alt="<?php echo $classroom['identification'] ?>">
-                                <p class="text-over-image"><?php echo $classroom['identification']; ?></p>
-                                <?php //aqui ó ?>
-                            </div>
-                        </a>
+                            <a href="scheduling.php?id=<?php echo $classroom['id_class']; ?>">
+                                <div class="overlay-DC">
+                                    <img src="../Resources/Images/img-1.png" alt="<?php echo $classroom['identification'] ?>">
+                                    <p class="text-over-image"><?php echo $classroom['identification']; ?></p>
+                                    <?php //aqui ó 
+                                    ?>
+                                </div>
+                            </a>
                         </div>
                     <?php endforeach ?>
                 </div>
@@ -129,4 +131,12 @@ $classrooms = $classroomController->listClassrooms();
             </div>
         </section>
     </main>
-    <script src="../Resources/Js/sandwich-menu.js"></script>
+    <footer>
+        <p>&copy; 2024 SmartClass. Todos os direitos reservados.</p>
+        <p>Desenvolvido por <a href="">Empresa Example</a></p>
+    </footer>
+</body>
+
+</html>
+<script src="../Resources/Js/sandwich-menu.js"></script>
+
