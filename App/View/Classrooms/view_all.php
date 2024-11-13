@@ -16,7 +16,7 @@ try {
 
         echo "<tr>";
         echo "<td>" . htmlspecialchars($classroom['identification']) . "</td>";
-        echo "<td class=\"$statusClass\">" . htmlspecialchars($classroom['conditionstatus']) . "</td>";
+        echo "<td class=\"$statusClass\">" . htmlspecialchars($classroom['conditionstatus'] == 0 ? 'Disponível' : ($classroom['conditionstatus'] == 1 ? 'Reservada' : '')) . "</td>";
         echo "<td>" . htmlspecialchars($classroom['equipaments']) . "</td>";
         echo "<td>" . htmlspecialchars($classroom['description']) . "</td>";
         echo "</tr>";
