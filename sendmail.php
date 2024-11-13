@@ -1,21 +1,18 @@
 <?php
 require 'vendor/autoload.php';
-    
 include 'Config/config.php';
 
 $school_year = $_POST['school_year'];
 
-
-$sql = "SELECT name, email FROM users WHERE school_year = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $school_year);
+// Preparar e executar a consulta usando PDO
+$sql = "SELECT name, email FROM users WHERE school_year = :school_year";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':school_year', $school_year, PDO::PARAM_INT);
 $stmt->execute();
-$result = $stmt->get_result();
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-if ($result->num_rows > 0) {
-
-    while ($row = $result->fetch_assoc()) {
+if ($result) {
+    foreach ($result as $row) {
         $name_student = $row['name'];
         $email_student = $row['email'];
 
@@ -24,21 +21,21 @@ if ($result->num_rows > 0) {
 
         // Habilitar o SMTP
         $mail->isSMTP();
-        $mail->Host = 'smtp.seuservidor.com';  // Endereço do servidor SMTP
+        $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'sesiinterclasse380@gmail.com';  // Usuário do SMTP
-        $mail->Password = 'suasenha';           // Senha do SMTP
+        $mail->Username = 'smartclass.educ@gmail.com';
+        $mail->Password = 'smartclass123';
         $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         // Configurar remetente e destinatário
-        $mail->setFrom('sesiinterclasse380@gmail.com', 'Sua Escola');
-        $mail->addAddress($email_student, $name_student); 
+        $mail->setFrom('smartclass.educ@gmail.com', 'Sua Escola');
+        $mail->addAddress($email_student, $name_student);
 
         // Conteúdo do email
         $mail->isHTML(true);
         $mail->Subject = 'Nova Aula Agendada!';
-        $mail->Body    = "Olá, $name_student, <br><br>Uma nova aula foi agendada para a sua turma.<br>Confira os detalhes no sistema da escola.<br><br>Atenciosamente,<br>Sua Escola";
+        $mail->Body = "Olá, $name_student, <br><br>Uma nova aula foi agendada para a sua turma.<br>Confira os detalhes no sistema da escola.<br><br>Atenciosamente,<br>Sua Escola";
         $mail->AltBody = "Olá, $name_student, Uma nova aula foi agendada para a sua turma. Confira os detalhes no sistema da escola. Atenciosamente, Sua Escola";
 
         // Enviar o email
@@ -51,7 +48,3 @@ if ($result->num_rows > 0) {
 } else {
     echo "Nenhum estudante encontrado para a turma.";
 }
-
-
-$stmt->close();
-$conn->close();
