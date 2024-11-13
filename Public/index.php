@@ -23,7 +23,7 @@ $classrooms = $classroomController->listClassrooms();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="../Resources/Images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../Resources/Images/logo.jpeg" type="image/x-icon">
     <title>Página Inicial</title>
 </head>
 
