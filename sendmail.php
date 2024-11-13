@@ -14,11 +14,11 @@ function enviarAvisoAula($pdo, $school_year, $scheduling_time, $end_time, $teach
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'smartclass.educ@gmail.com';
-    $mail->Password = 'smartclass123';
+    $mail->Username = 'smartclassco.educ@gmail.com';
+    $mail->Password = 'zjmbaevfcghuwcft';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
-    $mail->setFrom('smartclass.educ@gmail.com', 'SmartClass');
+    $mail->setFrom('smartclassco.educ@gmail.com', 'SmartClass');
 
     // Envio do email para cada aluno
     foreach ($alunos as $aluno) {
