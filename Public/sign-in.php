@@ -11,7 +11,7 @@ include_once '../Config/config.php';
     <title>Login</title>
     <link rel="stylesheet" href="../Resources/Css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="shortcut icon" href="../Resources/Images/sesi-logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../Resources/Images/logo.png" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -32,7 +32,7 @@ include_once '../Config/config.php';
         
 <form method="post" action="../App/Providers/configCargos.php">
 <div class="form-ico">
-<img src="../Resources/Images/logosesi.jpg">    
+<img src="../Resources/Images/logo.png">    
 </div>
 <h1>Faça login para verificar as salas disponíveis:</h1>
 <div class="form-input">
@@ -41,7 +41,7 @@ include_once '../Config/config.php';
 
 
 <label id="direction"><i class="fa fa-lock"></i>Senha</label>
-<input type="text" name="password" placeholder="Senha">
+<input type="password" name="password" placeholder="Senha">
 
 
 

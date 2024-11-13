@@ -6,7 +6,7 @@ $classroomController = new ClassroomController($pdo);
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
+<link rel="shortcut icon" href="../Resources/Images/logo.png" type="image/x-icon">
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

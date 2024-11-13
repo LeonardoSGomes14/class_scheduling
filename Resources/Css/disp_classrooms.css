@@ -28,6 +28,23 @@ body {
     margin: 0 0 0 3vw;
 }
 
+.add_new {
+border-radius: 5px;
+background-color:#0D8473;;
+border: none;
+    padding: 2px;
+
+}
+
+.non_dec {
+    text-decoration: none;
+    font-family: "SUSE", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
 .menu-icon {
     font-size: 30px;
     cursor: pointer;
