@@ -144,7 +144,11 @@ $groups = $groupController->selectGroups($teacher);
 
 
             <div class="id-class">
+                <?php if ($classrooms['conditionstatus'] == 0): ?>
                 <h1>Sala Disponível</h1>
+                <?php else: ?>
+                    <h1>Sala Reservada</h1>
+                    <?php endif ?>
                 <div class="img-sc">
                     <img src="../Resources/Images/img-1.png">
                     <h1 id="id">
