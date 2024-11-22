@@ -43,14 +43,14 @@ h2 {
     border-collapse: collapse;
     margin-bottom: 20px;
     font-size: 1rem;
-    table-layout: fixed; /* Define a largura fixa para as colunas */
+    table-layout: fixed;
 }
 
 .users-table th, .users-table td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
-    word-wrap: break-word; /* Quebra palavras longas para evitar estouro */
+    word-wrap: break-word;
 }
 
 .users-table th {
@@ -58,7 +58,7 @@ h2 {
     color: white;
 }
 
-/* Largura das colunas */
+/* Ajustes para espaçamento das colunas */
 .users-table th:nth-child(1),
 .users-table td:nth-child(1) {
     width: 20%; /* Nome */
@@ -104,6 +104,93 @@ h2 {
     text-decoration: underline;
 }
 
+/* Container para botões de ação */
+.container-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+/* Botões de ação */
+.btn-action, .btn-delete {
+    text-decoration: none;
+    color: white;
+    border-radius: 50%; /* Botões circulares */
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+}
+
+.btn-action {
+    background-color: #28a745; /* Verde para Atualizar */
+}
+
+.btn-action:hover {
+    background-color: #218838;
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Vermelho para Deletar */
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Estilo para ícones */
+.btn-action img,
+.btn-delete img {
+    width: 15px;
+    height: 15px;
+    filter: invert(1); /* Inverte as cores do ícone */
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+.op {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button.confirm, button.close {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button.confirm {
+    background-color: #28a745;
+    color: white;
+}
+
+button.close {
+    background-color: #dc3545;
+    color: white;
+}
+
 /* Media queries para responsividade */
 @media (max-width: 768px) {
     h1 {
@@ -131,7 +218,7 @@ h2 {
     .users-table td:nth-child(1),
     .users-table th:nth-child(2),
     .users-table td:nth-child(2) {
-        width: 40%; /* Ajusta o nome e email em telas menores */
+        width: 40%;
     }
 
     .users-table th:nth-child(3),
@@ -140,7 +227,7 @@ h2 {
     .users-table td:nth-child(4),
     .users-table th:nth-child(5),
     .users-table td:nth-child(5) {
-        width: 20%; /* Distribui as outras colunas */
+        width: 20%;
     }
 }
 
@@ -170,8 +257,7 @@ h2 {
         padding: 10px;
     }
 
-    /* Ajuste das colunas para dispositivos muito pequenos */
     .users-table th, .users-table td {
-        width: auto; /* Remove larguras fixas para se ajustar melhor */
+        width: auto;
     }
 }

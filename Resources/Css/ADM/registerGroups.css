@@ -1,93 +1,100 @@
-/* sing-up.css */
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #007bff;
+    background-color: #0D8473;
+    color: white;
     padding: 10px;
     text-align: center;
-    color: white;
 }
 
 .message {
-    margin: 10px 0;
+    font-size: 1.2em;
+    color: white;
+    background-color: #0D8473;
     padding: 10px;
-    text-align: center;
-}
-
-.message.success {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 60px);
-}
-
-.form-section {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-}
-
-.form-section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
+    border-radius: 5px;
     margin-bottom: 15px;
 }
 
-.form-group label span {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
+main {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
 }
 
-.form-group select,
-.form-group input {
-    width: 100%;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+    min-width: 90vw;
 }
 
-.form-group .btn-submit {
-    background-color: #007bff;
-    color: white;
-    border: none;
+h2 {
+    color: #0D8473;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+    border: #086559 1px solid;
+    padding: 15px;
+    width: 65%;
+    padding: 5vh 0 3vh 0;
+}
+
+form label {
+    font-size: 1.1em;
+}
+
+form input, form select {
     padding: 10px;
+    width: 50vw;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form select {
+    max-width: 75%;
+    margin-bottom: 20px; /* Espaço extra entre os selects */
+}
+
+button {
+    background-color: #0D8473;
+    color: white;
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 1.1em;
+    margin-top: 25px; /* Espaço extra entre o último select e o botão */
 }
 
-.form-group .btn-submit:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: #086559;
 }
 
 .back-link {
-    display: inline-block;
-    margin-bottom: 20px;
-    color: #007bff;
+    color: #0D8473;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    display: inline-block;
 }
 
 .back-link:hover {

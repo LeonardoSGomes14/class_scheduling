@@ -1,29 +1,9 @@
-<?php 
-session_start();
-include_once '../../Config/config.php';
-include_once '../../App/Controller/GroupsController.php';
-include_once '../../App/Controller/UsersController.php';
-
-$usersController = new UserController($pdo);
-$groupController = new GroupController($pdo);
-if (isset($_POST['teacher']) && 
-    isset($_POST['year_school'])) 
-    {
-    $groupController->createGroup($_POST['teacher'], $_POST['year_school']);
-
-    $_SESSION['message'] = 'Grupo criado com Sucesso!';
-    header('Location: registerGroups.php');
-    exit();
-}
-
-$types = $usersController->selectTeacher();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Resources/Css/ADM/sing-up.css">
+    <link rel="stylesheet" href="../../Resources/Css/ADM/registerGroups.css">
     <title>Cadastrar Grupos</title>
 </head>
 <body>
