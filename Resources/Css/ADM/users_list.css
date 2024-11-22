@@ -43,14 +43,14 @@ h2 {
     border-collapse: collapse;
     margin-bottom: 20px;
     font-size: 1rem;
-    table-layout: fixed; /* Define a largura fixa para as colunas */
+    table-layout: fixed;
 }
 
 .users-table th, .users-table td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
-    word-wrap: break-word; /* Quebra palavras longas para evitar estouro */
+    word-wrap: break-word;
 }
 
 .users-table th {
@@ -58,7 +58,7 @@ h2 {
     color: white;
 }
 
-/* Largura das colunas */
+/* Ajustes para espaçamento das colunas */
 .users-table th:nth-child(1),
 .users-table td:nth-child(1) {
     width: 20%; /* Nome */
@@ -104,17 +104,25 @@ h2 {
     text-decoration: underline;
 }
 
-/* Ajustes nos botões de ação */
+/* Container para botões de ação */
+.container-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+/* Botões de ação */
 .btn-action, .btn-delete {
     text-decoration: none;
     color: white;
-    border-radius: 50%; /* Torna os botões circulares */
+    border-radius: 50%; /* Botões circulares */
     transition: background-color 0.3s;
-    display: flex; /* Altera para flex para centralizar */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    width: 25px; /* Largura para o botão */
-    height: 25px; /* Altura para o botão */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
 }
 
 .btn-action {
@@ -133,11 +141,11 @@ h2 {
     background-color: #c82333;
 }
 
-/* Estilo para os ícones */
+/* Estilo para ícones */
 .btn-action img,
 .btn-delete img {
-    width: 15px; /* Largura do ícone */
-    height: 15px; /* Altura do ícone */
+    width: 15px;
+    height: 15px;
     filter: invert(1); /* Inverte as cores do ícone */
 }
 
@@ -210,7 +218,7 @@ button.close {
     .users-table td:nth-child(1),
     .users-table th:nth-child(2),
     .users-table td:nth-child(2) {
-        width: 40%; /* Ajusta o nome e email em telas menores */
+        width: 40%;
     }
 
     .users-table th:nth-child(3),
@@ -219,7 +227,7 @@ button.close {
     .users-table td:nth-child(4),
     .users-table th:nth-child(5),
     .users-table td:nth-child(5) {
-        width: 20%; /* Distribui as outras colunas */
+        width: 20%;
     }
 }
 
@@ -249,8 +257,7 @@ button.close {
         padding: 10px;
     }
 
-    /* Ajuste das colunas para dispositivos muito pequenos */
     .users-table th, .users-table td {
-        width: auto; /* Remove larguras fixas para se ajustar melhor */
+        width: auto;
     }
 }

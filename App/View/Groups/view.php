@@ -7,8 +7,6 @@ include_once 'C:\xampp\htdocs\class_scheduling\App\Controller\GroupsController.p
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Resources/Css/ADM/sing-up.css">
-    <link rel="stylesheet" href="../../Resources/Css/ADM/styledelete.css">
     <title>Lista de Grupos</title>
 </head>
 <body>

@@ -29,7 +29,7 @@ $subjectss = $subjectsController->listSubjects();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Cadastrar Usuário</title>
     <link rel="stylesheet" href="../../Resources/Css/ADM/sing-up.css">
 </head>
 
@@ -45,7 +45,7 @@ $subjectss = $subjectsController->listSubjects();
     <main>
         <section>
             <a href="index.php" class="back-link">Voltar</a>
-            <h2>Sign Up</h2>
+            <h2>Cadastrar usuário</h2>
             <form method="post" class="signup-form">
                 <label>
                     <span>Nome:</span><br>
