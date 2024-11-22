@@ -52,6 +52,10 @@ $classrooms = $classroomController->listClassrooms();
                         <a class="link-nav" href="calendario/views/user/">
                             <img class="icons" src="../Resources/Images/calendar.png" alt="Calendario-icon">
                             <p class="nav-text">CALENDÁRIO</p>
+                        </a><br>
+                        <a class="link-nav" href="tutorial.html">
+                            <img class="icons" src="../Resources/Images/tuto.png" alt="Calendario-icon">
+                            <p class="nav-text">TUTORIAL</p>
                         </a>
                         <br>
                         <?php
