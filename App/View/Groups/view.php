@@ -18,7 +18,7 @@ include_once 'C:\xampp\htdocs\class_scheduling\App\Controller\GroupsController.p
                 <thead>
                     <tr>
                         <th>Professor</th>
-                        <th>Ano Escolar</th>
+                        <th>Turma</th>
                         <th colspan="2">Opções</th>
                     </tr>
                 </thead>
@@ -65,7 +65,7 @@ include_once 'C:\xampp\htdocs\class_scheduling\App\Controller\GroupsController.p
                                     if (xhr.responseText == "success") {
                                         window.location.href = "Groups.php";
                                     } else {
-                                        alert("Falha ao excluir o treinador: " + xhr.responseText);
+                                        alert("Falha ao excluir o grupo: " + xhr.responseText);
                                     }
                                 }
                             }

@@ -38,4 +38,4 @@ function enviarAvisoAula($pdo, $school_year, $scheduling_time, $end_time, $teach
         }
     }
 }
-?>
+?>  

@@ -104,6 +104,85 @@ h2 {
     text-decoration: underline;
 }
 
+/* Ajustes nos botões de ação */
+.btn-action, .btn-delete {
+    text-decoration: none;
+    color: white;
+    border-radius: 50%; /* Torna os botões circulares */
+    transition: background-color 0.3s;
+    display: flex; /* Altera para flex para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 25px; /* Largura para o botão */
+    height: 25px; /* Altura para o botão */
+}
+
+.btn-action {
+    background-color: #28a745; /* Verde para Atualizar */
+}
+
+.btn-action:hover {
+    background-color: #218838;
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Vermelho para Deletar */
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Estilo para os ícones */
+.btn-action img,
+.btn-delete img {
+    width: 15px; /* Largura do ícone */
+    height: 15px; /* Altura do ícone */
+    filter: invert(1); /* Inverte as cores do ícone */
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+.op {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button.confirm, button.close {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button.confirm {
+    background-color: #28a745;
+    color: white;
+}
+
+button.close {
+    background-color: #dc3545;
+    color: white;
+}
+
 /* Media queries para responsividade */
 @media (max-width: 768px) {
     h1 {
