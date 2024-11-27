@@ -142,7 +142,7 @@ $groups = $groupController->selectGroups($teacher);
                     <div class="list-nav">
                         <ul class="ul-nav">
                             <li class="button-nav">
-                                <a class="link-nav" href="tutorial.html">
+                                <a class="link-nav" href="tutorial.php">
                                     <img class="icons" src="../Resources/Images/tuto.png" alt="Calendario-icon">
                                     <p class="nav-text">TUTORIAL</p>
                                 </a>

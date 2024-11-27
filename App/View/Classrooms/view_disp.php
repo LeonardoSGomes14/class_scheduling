@@ -51,7 +51,7 @@ include_once 'C:\xampp\htdocs\class_scheduling\Config\config.php';
             <div class="list-nav">
                 <ul class="ul-nav">
                     <li class="button-nav">
-                        <a class="link-nav" href="tutorial.html">
+                        <a class="link-nav" href="tutorial.php">
                             <img class="icons" src="../Resources/Images/tuto.png" alt="Calendario-icon">
                             <p class="nav-text">TUTORIAL</p>
                         </a>
